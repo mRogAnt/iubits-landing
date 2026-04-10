@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="description" content="iUbits es un sistema de gestión que mide simultáneamente el rendimiento de los procesos y el bienestar de quienes los ejecutan.">
+<meta property="og:title" content="iUbits — Los proyectos los ejecutan personas">
+<meta property="og:description" content="El primer sistema de gestión que mide procesos y personas al mismo tiempo. SP + FISP + IR + IQ en tiempo real.">
+<meta property="og:url" content="https://iubits.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="iUbits — Los proyectos los ejecutan personas">
+<meta name="twitter:description" content="El primer sistema de gestión que mide procesos y personas al mismo tiempo.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iUbits — Los proyectos los ejecutan personas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; }
+
+/* FONDOS */
+.dark  { background: #1E2330; color: #ECEFF4; }
+.light { background: #F8F9FA; color: #1a1a1a; }
+
+/* NAV */
+nav {
+  padding: 18px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  background: #1E2330;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo { font-size: 18px; font-weight: 500; color: #00B4D8; letter-spacing: 0.5px; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-link { font-size: 13px; color: #81909E; cursor: pointer; text-decoration: none; transition: color 0.2s; }
+.nav-link:hover { color: #ECEFF4; }
+.nav-btn {
+  padding: 7px 18px; border-radius: 6px;
+  background: rgba(136,192,208,0.15);
+  border: 0.5px solid rgba(136,192,208,0.4);
+  color: #00B4D8; font-size: 13px; font-weight: 500;
+  cursor: pointer; font-family: inherit; text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-btn:hover { background: rgba(136,192,208,0.25); }
+
+/* HELPERS */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 88px 64px; }
+.eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+.eline-dark  { width: 28px; height: 0.5px; background: #88C0D0; }
+.eline-light { width: 28px; height: 0.5px; background: #3B4252; }
+.h1-dark  { font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 48px; line-height: 1.1; color: rgba(236,239,244,0.70); font-weight: 900; margin-bottom: 20px; }
+.h2-dark  { font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 34px; line-height: 1.2; color: rgba(236,239,244,0.70); font-weight: 900; margin-bottom: 16px; }
+.h2-light { font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 34px; line-height: 1.2; color: rgba(26,26,26,0.70);  font-weight: 900; margin-bottom: 16px; }
+.accent   { color: #00B4D8; font-style: italic; }
+.accent-d { color: #00B4D8; font-style: italic; }
+.desc-dark  { font-size: 15px; color: #81909E; line-height: 1.85; max-width: 540px; }
+.desc-light { font-size: 15px; color: #555;    line-height: 1.85; max-width: 540px; }
+
+.btn-p { padding: 12px 28px; border-radius: 6px; background: #00B4D8; color: #1E2330; font-size: 14px; font-weight: 500; cursor: pointer; border: none; font-family: inherit; transition: background 0.2s; text-decoration: none; display: inline-block; }
+.btn-p:hover { background: #00C8F0; }
+.btn-g-dark  { padding: 12px 24px; border-radius: 6px; background: transparent; color: #81909E; font-size: 14px; cursor: pointer; border: 0.5px solid rgba(255,255,255,0.15); font-family: inherit; text-decoration: none; display: inline-block; transition: color 0.2s; }
+.btn-g-dark:hover  { color: #ECEFF4; border-color: rgba(255,255,255,0.3); }
+.btn-g-light { padding: 12px 24px; border-radius: 6px; background: transparent; color: #3B4252; font-size: 14px; cursor: pointer; border: 0.5px solid rgba(59,66,82,0.3); font-family: inherit; text-decoration: none; display: inline-block; transition: background 0.2s; }
+.btn-g-light:hover { background: rgba(59,66,82,0.06); }
+.actions { display: flex; gap: 12px; align-items: center; margin-top: 32px; flex-wrap: wrap; }
+
+/* HERO */
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.dash { background: #3B4252; border-radius: 12px; border: 0.5px solid rgba(255,255,255,0.1); overflow: hidden; }
+.dash-bar { background: #1E2330; padding: 9px 14px; display: flex; align-items: center; gap: 6px; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
+.d-dot { width: 8px; height: 8px; border-radius: 50%; }
+.dash-bar-title { font-size: 10px; color: #6B7A85; margin-left: 6px; }
+.dash-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.d-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.d-m { background: #1E2330; border-radius: 6px; padding: 9px 11px; }
+.d-ml { font-size: 9px; color: #6B7A85; }
+.d-mv { font-size: 16px; font-weight: 500; color: #ECEFF4; display: flex; align-items: center; gap: 5px; margin-top: 2px; }
+.d-sc { width: 7px; height: 7px; border-radius: 50%; }
+.sc-g { background: #3B6D11; } .sc-y { background: #BA7517; } .sc-o { background: #D85A30; }
+.d-row { background: #1E2330; border-radius: 6px; padding: 9px 11px; display: flex; align-items: center; justify-content: space-between; }
+.d-rn { font-size: 11px; color: #ECEFF4; }
+.d-rs { font-size: 9px; color: #6B7A85; }
+.d-chips { display: flex; gap: 5px; align-items: center; }
+.d-chip { font-size: 10px; display: flex; align-items: center; gap: 3px; color: #9AABB8; }
+.d-pill { background: rgba(136,192,208,0.15); color: #00B4D8; font-size: 9px; padding: 2px 7px; border-radius: 10px; border: 0.5px solid rgba(136,192,208,0.3); }
+.d-iubot { background: #1E2330; padding: 8px 14px; display: flex; align-items: center; gap: 7px; border-top: 0.5px solid rgba(255,255,255,0.06); }
+.d-av { width: 18px; height: 18px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; }
+.d-dot-b { width: 6px; height: 6px; border-radius: 50%; background: #88C0D0; }
+.d-txt { font-size: 10px; color: #6B7A85; }
+
+/* PROBLEMA */
+.prob-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E8E8E8; border: 0.5px solid #E8E8E8; border-radius: 12px; overflow: hidden; margin-top: 48px; }
+.prob-card { background: #fff; padding: 36px 28px; }
+.pc-num   { font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 44px; color: rgba(136,192,208,0.35); font-weight: 900; margin-bottom: 14px; }
+.pc-title { font-size: 15px; font-weight: 500; color: #1a1a1a; margin-bottom: 8px; }
+.pc-desc  { font-size: 13px; color: #777; line-height: 1.7; }
+
+/* FILOSOFIA */
+.phil-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 48px; }
+.phil-quote {
+  font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 22px; color: rgba(236,239,244,0.70); font-weight: 900;
+  line-height: 1.45; font-style: italic;
+  padding: 32px 32px 32px 28px;
+  border-left: 2px solid #88C0D0;
+  background: rgba(136,192,208,0.05);
+  border-radius: 0 8px 8px 0;
+}
+.phil-quote span { color: #00B4D8; }
+.phil-points { display: flex; flex-direction: column; gap: 22px; }
+.phil-point { display: flex; gap: 14px; }
+.pp-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(136,192,208,0.1); border: 0.5px solid rgba(136,192,208,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.pp-dot  { width: 10px; height: 10px; border-radius: 50%; background: #88C0D0; }
+.pp-title { font-size: 13px; font-weight: 500; color: #ECEFF4; margin-bottom: 4px; }
+.pp-desc  { font-size: 12px; color: #6B7A85; line-height: 1.65; }
+
+/* FRAMEWORK */
+.fw-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 48px; }
+.fw-card { background: #fff; border-radius: 10px; padding: 32px 28px; border: 0.5px solid #E0E0E0; }
+.fw-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 14px; }
+.fw-name  { font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 26px; color: rgba(59,66,82,0.70); font-weight: 900; margin-bottom: 6px; }
+.fw-sub   { font-size: 11px; color: #999; margin-bottom: 14px; }
+.fw-desc  { font-size: 13px; color: #555; line-height: 1.65; }
+.fw-tag   { display: inline-block; margin-top: 16px; padding: 3px 10px; border-radius: 4px; font-size: 10px; background: rgba(59,66,82,0.07); color: #3B4252; border: 0.5px solid rgba(59,66,82,0.15); }
+
+/* PASOS */
+.steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.06); margin-top: 48px; }
+.step-c { background: #1E2330; padding: 30px 24px; }
+.step-n { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #00B4D8; margin-bottom: 18px; }
+.step-t { font-size: 14px; font-weight: 500; color: #ECEFF4; margin-bottom: 8px; }
+.step-d { font-size: 12px; color: #6B7A85; line-height: 1.65; }
+
+/* NIMs */
+.nim-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-top: 48px; }
+.nim-card { border-radius: 8px; padding: 16px 18px; border: 0.5px solid #E8E8E8; border-left: 3px solid; background: #fff; margin-bottom: 10px; }
+.nim-o { border-left-color: #D85A30; } .nim-y { border-left-color: #BA7517; } .nim-g { border-left-color: #3B6D11; }
+.nim-c-title { font-size: 13px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; }
+.nim-c-desc  { font-size: 12px; color: #777; line-height: 1.5; }
+.nim-c-tag   { font-size: 10px; margin-top: 8px; font-weight: 500; }
+.tag-o { color: #D85A30; } .tag-y { color: #BA7517; } .tag-g { color: #3B6D11; }
+.nim-text h3 { font-family: 'DM Sans', sans-serif; font-size: 20px; color: #ECEFF4; font-weight: 500; margin-bottom: 14px; line-height: 1.3; }
+.nim-text p  { font-size: 14px; color: #555; line-height: 1.8; margin-bottom: 12px; }
+
+/* ══ MÓDULOS CON ICONOS ══ */
+.mods-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 56px; }
+.tier-block { margin-bottom: 40px; }
+.tier-head  { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.tier-badge { padding: 4px 14px; border-radius: 20px; font-size: 9px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; border: 0.5px solid; }
+.tb-core { background: rgba(136,192,208,0.12); color: #185FA5; border-color: rgba(136,192,208,0.35); }
+.tb-adv  { background: rgba(180,142,173,0.12); color: #72243E; border-color: rgba(180,142,173,0.35); }
+.tb-prem { background: rgba(235,203,139,0.12); color: #633806; border-color: rgba(235,203,139,0.45); }
+.tier-desc-t { font-size: 12px; color: #777; }
+.tier-line-l { flex: 1; height: 0.5px; background: #E0E4EA; }
+
+.mod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.mod-item {
+  background: #fff; border-radius: 10px; border: 0.5px solid #E0E0E0;
+  padding: 32px 28px; display: flex; flex-direction: column; align-items: flex-start;
+  transition: border-color 0.2s; cursor: default;
+}
+.mod-item:hover { border-color: rgba(136,192,208,0.5); }
+.mod-icon { width: 44px; height: 44px; margin-bottom: 18px; }
+.mod-info { flex: 1; min-width: 0; }
+.mod-name { font-size: 15px; font-weight: 500; color: #3B4252; margin-bottom: 10px; font-family: 'DM Sans', sans-serif; }
+.mod-desc { font-size: 13px; color: #555; line-height: 1.65; }
+.mod-impact { font-size: 10px; padding: 3px 10px; border-radius: 4px; font-weight: 500; margin-top: 16px; display: inline-block; }
+.mi-core { background: #EAF3DE; color: #27500A; }
+.mi-warn { background: #FCEBEB; color: #791F1F; }
+.mi-med  { background: #FAEEDA; color: #633806; }
+
+/* ROLES */
+.roles { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 48px; }
+.role-c { background: #3B4252; border-radius: 10px; padding: 26px 22px; border: 0.5px solid rgba(255,255,255,0.08); }
+.role-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; border: 0.5px solid; }
+.rb-pm   { background: rgba(136,192,208,0.15); color: #00B4D8; border-color: rgba(136,192,208,0.3); }
+.rb-pmo  { background: rgba(180,142,173,0.15); color: #B48EAD; border-color: rgba(180,142,173,0.3); }
+.rb-dir  { background: rgba(163,190,140,0.15); color: #A3BE8C; border-color: rgba(163,190,140,0.3); }
+.rb-prog { background: rgba(235,203,139,0.15); color: #EBCB8B; border-color: rgba(235,203,139,0.3); }
+.role-t { font-size: 14px; font-weight: 500; color: #ECEFF4; margin-bottom: 6px; }
+.role-d { font-size: 12px; color: #6B7A85; line-height: 1.65; }
+.role-s { margin-top: 14px; font-size: 11px; color: #00B4D8; font-weight: 500; }
+
+/* CTA & FOOTER */
+.footer { background: #161B27; padding: 28px 64px; display: flex; align-items: center; justify-content: space-between; border-top: 0.5px solid rgba(255,255,255,0.06); }
+.footer-logo { font-size: 15px; font-weight: 500; color: #00B4D8; }
+.footer-copy { font-size: 11px; color: #4C566A; }
+.footer-tag  { font-size: 11px; color: #4C566A; font-style: italic; }
+
+
+/* ── MODAL LISTA DE ESPERA ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.7); align-items: center; justify-content: center;
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: #1E2330; border-radius: 12px; border: 0.5px solid rgba(255,255,255,0.12);
+  padding: 40px 44px; max-width: 460px; width: 90%; position: relative;
+}
+.modal-close {
+  position: absolute; top: 16px; right: 20px; background: none; border: none;
+  color: #6B7A85; font-size: 20px; cursor: pointer; font-family: inherit; line-height: 1;
+}
+.modal-close:hover { color: #ECEFF4; }
+.modal-eyebrow { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #00B4D8; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.modal-title { font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 22px; color: rgba(236,239,244,0.70); font-weight: 900; font-weight: 400; margin-bottom: 10px; line-height: 1.2; }
+.modal-desc { font-size: 13px; color: #81909E; line-height: 1.7; margin-bottom: 24px; }
+.modal-form { display: flex; flex-direction: column; gap: 12px; }
+.modal-input {
+  width: 100%; padding: 11px 16px; border-radius: 6px; font-size: 14px;
+  background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.15);
+  color: #ECEFF4; font-family: inherit; outline: none; transition: border-color 0.2s;
+}
+.modal-input::placeholder { color: #4C566A; }
+.modal-input:focus { border-color: rgba(136,192,208,0.5); }
+.modal-submit {
+  width: 100%; padding: 12px; border-radius: 6px; background: #88C0D0;
+  color: #2E3440; font-size: 14px; font-weight: 500; border: none;
+  cursor: pointer; font-family: inherit; transition: background 0.2s;
+}
+.modal-submit:hover { background: #00C8F0; }
+.modal-privacy { font-size: 11px; color: #4C566A; text-align: center; margin-top: 4px; }
+.modal-success { display: none; text-align: center; padding: 20px 0; }
+.modal-success.active { display: block; }
+.modal-success-icon { font-size: 36px; margin-bottom: 14px; }
+.modal-success-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: #ECEFF4; font-weight: 400; margin-bottom: 8px; }
+.modal-success-desc { font-size: 13px; color: #81909E; line-height: 1.7; }
+
+/* SVG inline helpers */
+.icon-bg { fill: #EEF6F9; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" style="display:flex;align-items:center;text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 46" height="42" style="display:block;">
+  <defs>
+    <linearGradient id="og" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="100%" stop-color="#E07820"/>
+    </linearGradient>
+  </defs>
+  <text font-family="'Arial Black', sans-serif" font-weight="900" font-size="32" fill="#00B4D8" dominant-baseline="auto" y="42"><tspan>i</tspan><tspan dx="-2">U</tspan><tspan dx="-1">bits</tspan></text>
+  <circle cx="5" cy="19" r="4.5" fill="url(#og)"/>
+  <circle cx="61" cy="19" r="4.5" fill="#00B4D8"/>
+</svg></a>
+  <div class="nav-links">
+    <a class="nav-link" href="#framework">Framework</a>
+    <a class="nav-link" href="#modulos">Módulos</a>
+    <a class="nav-link" href="#roles">Roles</a>
+    <a class="nav-link" href="#como-funciona">Cómo funciona</a>
+    <a class="nav-btn" href="#" onclick="openModal();return false;" title="Próximamente">Solicitar acceso</a>
+  </div>
+</nav>
+
+<!-- ══ HERO — oscuro ══ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="eyebrow" style="color:#88C0D0"><div class="eline-dark"></div> Framework de gestión</div>
+        <h1 class="h1-dark">Los proyectos los ejecutan <em class="accent">personas</em></h1>
+        <p class="desc-dark">iUbits es un sistema de gestión que mide simultáneamente el rendimiento de los procesos y el bienestar de quienes los ejecutan. Porque si las personas no están bien, los procesos fallan.</p>
+        <div class="actions">
+          <a class="btn-p" href="#" onclick="openModal();return false;">Solicitar acceso</a>
+          <a class="btn-g-dark" href="#framework">Ver el framework →</a>
+        </div>
+      </div>
+      <div class="dash">
+        <div class="dash-bar">
+          <div class="d-dot" style="background:#A32D2D"></div>
+          <div class="d-dot" style="background:#BA7517"></div>
+          <div class="d-dot" style="background:#3B6D11"></div>
+          <div class="dash-bar-title" style="color:#00B4D8;">Internet Unique Business Intelligence Treatment System</div>
+        </div>
+        <div class="dash-body">
+          <div class="d-metrics">
+            <div class="d-m"><div class="d-ml">SP — Rendimiento del proceso</div><div class="d-mv">74% <div class="d-sc sc-y"></div></div></div>
+            <div class="d-m"><div class="d-ml">FISP — Bienestar del equipo</div><div class="d-mv">81% <div class="d-sc sc-g"></div></div></div>
+          </div>
+          <div class="d-row">
+            <div><div class="d-rn">Integración Backend</div><div class="d-rs">Carlos Rodríguez</div></div>
+            <div class="d-chips"><div class="d-chip"><div class="d-sc sc-g"></div>SP 85%</div><div class="d-chip"><div class="d-sc sc-g"></div>FISP 83%</div></div>
+          </div>
+          <div class="d-row">
+            <div><div class="d-rn">Auth API</div><div class="d-rs">Ana Martínez · Factor de Incertidumbre Crítico activo</div></div>
+            <div class="d-chips"><div class="d-chip"><div class="d-sc sc-y"></div>SP 61%</div><div class="d-pill">Gracia 18 días</div></div>
+          </div>
+          <div class="d-row">
+            <div><div class="d-rn">Testing QA</div><div class="d-rs">Diego Soto</div></div>
+            <div class="d-chips"><div class="d-chip"><div class="d-sc sc-o"></div>SP 55%</div><div class="d-chip"><div class="d-sc sc-o"></div>FISP 58%</div></div>
+          </div>
+          <div class="d-iubot">
+            <div class="d-av"><div class="d-dot-b"></div></div>
+            <div class="d-txt">iUbot · Diego tiene deterioro sostenido · ¿activamos protocolo?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROBLEMA — blanco ══ -->
+<section class="light">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#3B4252"><div class="eline-light"></div> El problema</div>
+    <h2 class="h2-light">La gestión de proyectos siempre ignoró <em class="accent-d">a las personas</em></h2>
+    <p class="desc-light">Las herramientas miden tareas, sprints y presupuestos. Nadie mide si quien ejecuta esos procesos está en condiciones reales de hacerlo.</p>
+    <div class="prob-grid">
+      <div class="prob-card">
+        <div class="pc-num">01</div>
+        <div class="pc-title">El proceso falla, la persona paga</div>
+        <div class="pc-desc">Cuando un proyecto se retrasa, el análisis busca el problema en el plan. iUbits busca primero en el estado real de quien lo ejecuta.</div>
+      </div>
+      <div class="prob-card">
+        <div class="pc-num">02</div>
+        <div class="pc-title">El bienestar no se mide</div>
+        <div class="pc-desc">Las organizaciones no tienen ningún indicador sistemático del estado psicológico de sus equipos. Lo asumen. Lo ignoran. Lo descubren tarde.</div>
+      </div>
+      <div class="prob-card">
+        <div class="pc-num">03</div>
+        <div class="pc-title">La carga se asigna a ciegas</div>
+        <div class="pc-desc">Los proyectos se asignan según disponibilidad nominal, sin considerar la carga real o los eventos de vida que afectan la capacidad efectiva.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FILOSOFIA — oscuro ══ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#88C0D0"><div class="eline-dark"></div> Filosofía</div>
+    <h2 class="h2-dark">Un framework construido sobre <em class="accent">evidencia científica</em></h2>
+    <div class="phil-layout">
+      <div class="phil-quote">"Los procesos los ejecutan <span>personas</span>. Si esas personas no están bien, los procesos <span>fallan</span>."</div>
+      <div class="phil-points">
+        <div class="phil-point"><div class="pp-icon"><div class="pp-dot"></div></div><div><div class="pp-title">Modelo JD-R + JDCS</div><div class="pp-desc">Basado en los modelos psicológicos Job Demands-Resources y Job Demand-Control-Support, validados científicamente para medir bienestar laboral en organizaciones.</div></div></div>
+        <div class="phil-point"><div class="pp-icon"><div class="pp-dot"></div></div><div><div class="pp-title">Escala Holmes &amp; Rahe</div><div class="pp-desc">Los eventos de vida impactan la capacidad de trabajo. iUbits los incorpora con consentimiento explícito como Factor de Incertidumbre Crítico (FIC).</div></div></div>
+        <div class="phil-point"><div class="pp-icon"><div class="pp-dot"></div></div><div><div class="pp-title">PMBOK + Scrum como base</div><div class="pp-desc">La gestión del proceso sigue las mejores prácticas de la industria. iUbits no las reemplaza — las enriquece con la dimensión humana que les falta.</div></div></div>
+        <div class="phil-point"><div class="pp-icon"><div class="pp-dot"></div></div><div><div class="pp-title">Privacidad como principio</div><div class="pp-desc">El estado psicológico del colaborador nunca se expone sin consentimiento. Solo RRHH y Psicología tienen acceso a los datos individuales sensibles.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FRAMEWORK — blanco ══ -->
+<section class="light" id="framework">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#3B4252"><div class="eline-light"></div> El framework</div>
+    <h2 class="h2-light">Dos métricas. Una visión <em class="accent-d">completa</em>.</h2>
+    <p class="desc-light">iUbits calcula en tiempo real dos indicadores que ninguna herramienta de gestión mide de forma integrada: el rendimiento del proceso y el bienestar de quien lo ejecuta.</p>
+    <div class="fw-cols">
+      <div class="fw-card">
+        <div class="fw-label">Métrica del proceso</div>
+        <div class="fw-name">SP</div>
+        <div class="fw-sub">Service Performance — rendimiento real del proceso</div>
+        <div class="fw-desc">Mide qué tan bien está ejecutándose el proceso en cada momento. Considera avance de tareas, alertas activas, velocidad de deterioro y efecto entre procesos dependientes.</div>
+        <div class="fw-tag">Proceso</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-label">Métrica de la persona</div>
+        <div class="fw-name">FISP</div>
+        <div class="fw-sub">Factor Integral de Salud de la Persona</div>
+        <div class="fw-desc">Mide el bienestar integral del colaborador: desempeño personal, relación con liderazgo y pares, control, autonomía y estrés laboral y personal.</div>
+        <div class="fw-tag">Persona</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-label">La unidad del sistema</div>
+        <div class="fw-name">iUbit</div>
+        <div class="fw-sub">Internet Unique Business Intelligence</div>
+        <div class="fw-desc">Cada iUbit registra el estado conjunto del proceso y de la persona en un momento dado, construyendo el historial inteligente del proyecto a lo largo del tiempo.</div>
+        <div class="fw-tag">Sistema</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMO FUNCIONA — oscuro ══ -->
+<section class="dark" id="como-funciona">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#88C0D0"><div class="eline-dark"></div> Cómo funciona</div>
+    <h2 class="h2-dark">De la descripción al proyecto <em class="accent">activo</em></h2>
+    <p class="desc-dark">iUbot, el asistente de inteligencia artificial integrado al sistema, genera automáticamente la propuesta completa del proyecto y guía cada paso del flujo de validación.</p>
+    <div class="steps">
+      <div class="step-c"><div class="step-n">Paso 01</div><div class="step-t">Describe el proyecto</div><div class="step-d">El Project Manager describe en lenguaje natural qué quiere construir, para quién y con qué restricciones. iUbot escucha y procesa el contexto.</div></div>
+      <div class="step-c"><div class="step-n">Paso 02</div><div class="step-t">iUbot genera la propuesta</div><div class="step-d">Historias de usuario, riesgos clasificados, equipo idóneo según bienestar histórico del equipo, y presupuesto completo en horas de trabajo.</div></div>
+      <div class="step-c"><div class="step-n">Paso 03</div><div class="step-t">El equipo valida</div><div class="step-d">Planning Poker con las estimaciones de iUbot como punto de partida. El equipo ajusta, divide o rechaza historias siguiendo metodología PMBOK.</div></div>
+      <div class="step-c"><div class="step-n">Paso 04</div><div class="step-t">El Motor de IA activa</div><div class="step-d">Las métricas de proceso (SP) y persona (FISP) se calculan en tiempo real desde el primer registro. Los riesgos quedan en monitoreo continuo.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MÓDULOS CON ICONOS — blanco ══ -->
+<section class="light" id="modulos">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#3B4252"><div class="eline-light"></div> Módulos del sistema</div>
+    <h2 class="h2-light">Cada capacidad es un <em class="accent-d">módulo activable</em></h2>
+
+    <div class="mods-intro">
+      <div>
+        <p class="desc-light">iUbits está compuesto por módulos independientes que puedes activar según las necesidades de tu organización. El sistema siempre te muestra con precisión qué capacidad ganas o pierdes con cada decisión.</p>
+        <p style="font-size:14px;color:#555;line-height:1.8;margin-top:16px">Los módulos Core son el núcleo del sistema — sin ellos no hay SP ni FISP. Los módulos Avanzados y Premium enriquecen la precisión, la anticipación y la equidad de las métricas.</p>
+      </div>
+      <div style="background:#fff;border-radius:10px;border:0.5px solid #E0E4EA;padding:24px;">
+        <div style="font-size:11px;color:#999;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;">Impacto de tener el sistema completo</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:12px;color:#3B4252;width:80px;">SP</div>
+            <div style="flex:1;height:5px;background:#EEF6F9;border-radius:3px;overflow:hidden;"><div style="width:100%;height:100%;background:#88C0D0;border-radius:3px;"></div></div>
+            <div style="font-size:12px;font-weight:500;color:#88C0D0;width:36px;text-align:right;">100%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:12px;color:#3B4252;width:80px;">FISP</div>
+            <div style="flex:1;height:5px;background:#EEF6F9;border-radius:3px;overflow:hidden;"><div style="width:100%;height:100%;background:#A3BE8C;border-radius:3px;"></div></div>
+            <div style="font-size:12px;font-weight:500;color:#A3BE8C;width:36px;text-align:right;">100%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:12px;color:#3B4252;width:80px;">Alertas NIM</div>
+            <div style="flex:1;"><span style="font-size:12px;font-weight:500;color:#3B4252;">Predictivas</span> <span style="font-size:11px;color:#999;">— anticipan antes de que ocurra</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORE -->
+    <div class="tier-block">
+      <div class="tier-head">
+        <div class="tier-badge tb-core">Core</div>
+        <div class="tier-desc-t">Núcleo del sistema — obligatorios</div>
+        <div class="tier-line-l"></div>
+      </div>
+      <div class="mod-grid">
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="30" width="5" height="8" rx="1" fill="#00B4D8" opacity="0.4"></rect><rect x="15" y="20" width="5" height="18" rx="1" fill="#00B4D8" opacity="0.7"></rect><rect x="22" y="24" width="5" height="14" rx="1" fill="#00B4D8" opacity="0.55"></rect><path d="M8,28 Q15,14 20,20 Q25,26 31,18" fill="none" stroke="#3B4252" stroke-width="1.2" opacity="0.5"></path><circle cx="20" cy="20" r="2" fill="#3B4252" opacity="0.6"></circle><line x1="28" y1="12" x2="28" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2" stroke-dasharray="2,2"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">PERT Psicológico</div><div class="mod-desc">Estima cada componente de bienestar con tres escenarios: optimista, probable y pesimista. Es la base matemática de todo el sistema.</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><ellipse cx="22" cy="24" rx="16" ry="4" fill="#00B4D8" opacity="0.08"></ellipse><ellipse cx="22" cy="24" rx="11" ry="3" fill="#00B4D8" opacity="0.15"></ellipse><ellipse cx="22" cy="24" rx="6" ry="2" fill="#00B4D8" opacity="0.35"></ellipse><ellipse cx="22" cy="24" rx="2" ry="1" fill="#00B4D8" opacity="0.8"></ellipse><line x1="22" y1="10" x2="22" y2="36" stroke="#3B4252" stroke-width="0.8" opacity="0.3"></line><line x1="22" y1="18" x2="9" y2="18" stroke="#3B4252" stroke-width="0.6" opacity="0.25"></line><line x1="22" y1="18" x2="35" y2="18" stroke="#3B4252" stroke-width="0.6" opacity="0.25"></line><line x1="9" y1="16" x2="9" y2="20" stroke="#3B4252" stroke-width="0.6" opacity="0.25"></line><line x1="35" y1="16" x2="35" y2="20" stroke="#3B4252" stroke-width="0.6" opacity="0.25"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">Varianza Psicológica</div><div class="mod-desc">Mide cuánto varía el bienestar entre el mejor y peor escenario declarado. A mayor dispersión, mayor incertidumbre sobre el estado real.</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="14" cy="22" r="4" fill="none" stroke="#88C0D0" stroke-width="1" opacity="0.8"></circle><circle cx="14" cy="22" r="8" fill="none" stroke="#88C0D0" stroke-width="0.7" opacity="0.45"></circle><circle cx="14" cy="22" r="12" fill="none" stroke="#88C0D0" stroke-width="0.5" opacity="0.2"></circle><circle cx="14" cy="22" r="1.5" fill="#00B4D8" opacity="0.9"></circle><line x1="23" y1="8" x2="23" y2="36" stroke="#E0E4EA" stroke-width="0.8" stroke-dasharray="2,2"></line><ellipse cx="33" cy="19" rx="3.5" ry="5.5" fill="none" stroke="#D85A30" stroke-width="1" opacity="0.8"></ellipse><ellipse cx="35" cy="23" rx="6" ry="3.5" fill="none" stroke="#D85A30" stroke-width="0.7" opacity="0.5"></ellipse><ellipse cx="32" cy="22" rx="9" ry="7" fill="none" stroke="#D85A30" stroke-width="0.5" opacity="0.25"></ellipse><circle cx="33" cy="22" r="1.5" fill="#D85A30" opacity="0.9"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">Volatilidad Psicológica</div><div class="mod-desc">Compara la regularidad del bienestar en el tiempo. Anillos regulares indican estabilidad; anillos irregulares revelan inconsistencia que penaliza el Factor Integral de Salud de la Persona (FISP).</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><polygon points="22,8 36,22 22,36 8,22" fill="none" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></polygon><polygon points="22,11 33,22 22,33 11,22" fill="#00B4D8" opacity="0.12"></polygon><polygon points="22,11 33,22 22,33 11,22" fill="none" stroke="#88C0D0" stroke-width="1.2" opacity="0.8"></polygon><line x1="22" y1="11" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.3"></line><line x1="33" y1="22" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.3"></line><line x1="22" y1="33" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.3"></line><line x1="11" y1="22" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.3"></line><circle cx="22" cy="22" r="2.5" fill="#00B4D8"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">Valor por Dimensión</div><div class="mod-desc">Agrupa los 13 componentes de bienestar en las 4 dimensiones del modelo JD-R+JDCS: Demandas, Recursos Laborales, Recursos Personales y Apoyo Social.</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="22" cy="22" r="14" fill="none" stroke="#E0E4EA" stroke-width="3"></circle><circle cx="22" cy="22" r="14" fill="none" stroke="#88C0D0" stroke-width="3" stroke-dasharray="66 22" stroke-linecap="round" transform="rotate(-90 22 22)"></circle><circle cx="22" cy="22" r="8" fill="#fff" stroke="#E0E4EA" stroke-width="0.5"></circle><line x1="22" y1="8" x2="22" y2="16" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="36" y1="22" x2="28" y2="22" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="22" y1="36" x2="22" y2="28" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="8" y1="22" x2="16" y2="22" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><circle cx="22" cy="22" r="2" fill="#00B4D8"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">FISP Maestro — Factor Integral de Salud de la Persona</div><div class="mod-desc">Sintetiza todas las dimensiones de bienestar en un único índice entre 0 y 100%. Es el producto central del sistema en la dimensión persona.</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><line x1="8" y1="34" x2="36" y2="12" stroke="#3B4252" stroke-width="1" opacity="0.2" stroke-dasharray="3,2"></line><path d="M8,34 Q18,32 24,26 Q30,20 36,22" fill="none" stroke="#88C0D0" stroke-width="1.5" opacity="0.9"></path><line x1="28" y1="15" x2="28" y2="22" stroke="#D85A30" stroke-width="1.2" opacity="0.8"></line><line x1="25" y1="15" x2="31" y2="15" stroke="#D85A30" stroke-width="1" opacity="0.8"></line><line x1="25" y1="22" x2="31" y2="22" stroke="#D85A30" stroke-width="1" opacity="0.8"></line><circle cx="8" cy="34" r="2.5" fill="#00B4D8"></circle><circle cx="36" cy="22" r="2.5" fill="#00B4D8"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">Delta PERT Proceso</div><div class="mod-desc">Calcula la desviación real del proceso respecto a su estimación original probabilística. Es la base del Service Performance (SP).</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><polygon points="22,7 35,14 35,30 22,37 9,30 9,14" fill="none" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></polygon><polygon points="22,11 31,16 31,28 22,33 13,28 13,16" fill="#00B4D8" opacity="0.1"></polygon><polygon points="22,11 31,16 31,28 22,33 13,28 13,16" fill="none" stroke="#88C0D0" stroke-width="1.3" opacity="0.85"></polygon><line x1="22" y1="11" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="31" y1="16" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="31" y1="28" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="22" y1="33" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="13" y1="28" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="13" y1="16" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><circle cx="22" cy="22" r="3" fill="#00B4D8"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">SP Maestro — Service Performance</div><div class="mod-desc">Integra el delta, la velocidad de deterioro, la cascada entre procesos y la penalización en un único índice de rendimiento entre 0 y 100%.</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="10" width="18" height="4" rx="1" fill="#00B4D8" opacity="0.35"></rect><rect x="8" y="17" width="14" height="4" rx="1" fill="#00B4D8" opacity="0.55"></rect><rect x="8" y="24" width="16" height="4" rx="1" fill="#00B4D8" opacity="0.75"></rect><path d="M30,12 Q38,12 38,20 Q38,28 30,28 Q26,28 24,26" fill="none" stroke="#88C0D0" stroke-width="1.2" opacity="0.7"></path><line x1="24" y1="22" x2="24" y2="27" stroke="#88C0D0" stroke-width="1.2" opacity="0.7"></line><line x1="20" y1="27" x2="24" y2="27" stroke="#88C0D0" stroke-width="1.2" opacity="0.7"></line><circle cx="30" cy="12" r="2" fill="#00B4D8" opacity="0.8"></circle><line x1="8" y1="33" x2="26" y2="33" stroke="#88C0D0" stroke-width="0.6" opacity="0.2" stroke-dasharray="2,2"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">Índice de Retrabajo</div><div class="mod-desc">Detecta cuántos intentos necesita una persona para completar una tarea. Es la primera señal de estrés no declarado — llega antes que cualquier caída en SP o FISP. Core porque sin él el sistema actúa a ciegas.</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="22" cy="20" r="10" fill="none" stroke="#88C0D0" stroke-width="0.8" opacity="0.2"></circle><circle cx="22" cy="20" r="6" fill="none" stroke="#88C0D0" stroke-width="1" opacity="0.45"></circle><circle cx="22" cy="20" r="2.5" fill="#00B4D8" opacity="0.8"></circle><line x1="22" y1="8" x2="22" y2="11" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="22" y1="29" x2="22" y2="32" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="10" y1="20" x2="13" y2="20" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="31" y1="20" x2="34" y2="20" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><path d="M14,14 L16.5,16.5" stroke="#88C0D0" stroke-width="1" opacity="0.4"></path><path d="M28,26 L30.5,28.5" stroke="#88C0D0" stroke-width="1" opacity="0.4"></path><path d="M30,14 L27.5,16.5" stroke="#88C0D0" stroke-width="1" opacity="0.4"></path><path d="M14,26 L16.5,23.5" stroke="#88C0D0" stroke-width="1" opacity="0.4"></path><line x1="14" y1="36" x2="30" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2" stroke-dasharray="2,2"></line><line x1="18" y1="33" x2="18" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></line><line x1="22" y1="33" x2="22" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></line><line x1="26" y1="33" x2="26" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">Índice de Inquietud</div><div class="mod-desc">Detecta tensión anticipatoria antes de que aparezca en el retrabajo o el FISP. La mide desde fuentes objetivas: brecha de skills, historial propio en contextos similares y carga de tareas críticas activas.</div></div>
+          <div class="mod-impact mi-core">Core</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AVANZADO -->
+    <div class="tier-block">
+      <div class="tier-head">
+        <div class="tier-badge tb-adv">Avanzado</div>
+        <div class="tier-desc-t">Enriquecen la precisión — recomendados</div>
+        <div class="tier-line-l"></div>
+      </div>
+      <div class="mod-grid">
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="10" width="28" height="5" rx="1.5" fill="#00B4D8" opacity="0.25"></rect><rect x="8" y="18" width="28" height="5" rx="1.5" fill="#00B4D8" opacity="0.4"></rect><rect x="8" y="26" width="28" height="5" rx="1.5" fill="#00B4D8" opacity="0.6"></rect><rect x="8" y="34" width="28" height="5" rx="1.5" fill="#00B4D8" opacity="0.85"></rect><line x1="36" y1="38" x2="40" y2="38" stroke="#3B4252" stroke-width="1" opacity="0.4"></line><line x1="38" y1="35" x2="40" y2="38" stroke="#3B4252" stroke-width="1" opacity="0.4"></line><line x1="38" y1="41" x2="40" y2="38" stroke="#3B4252" stroke-width="1" opacity="0.4"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">Factor Psicológico</div><div class="mod-desc">Combina las 4 dimensiones del modelo JD-R+JDCS en un índice único ajustado por volatilidad. Sin él, el FISP pierde su componente más rica.</div></div>
+          <div class="mod-impact mi-warn">Sin él: −15% FISP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><line x1="22" y1="10" x2="22" y2="36" stroke="#3B4252" stroke-width="0.8" opacity="0.35"></line><line x1="14" y1="22" x2="30" y2="22" stroke="#3B4252" stroke-width="0.8" opacity="0.4"></line><ellipse cx="11" cy="28" rx="7" ry="2" fill="none" stroke="#D85A30" stroke-width="1" opacity="0.7"></ellipse><line x1="14" y1="22" x2="11" y2="26" stroke="#D85A30" stroke-width="0.8" opacity="0.6"></line><rect x="7" y="23" width="8" height="5" rx="1" fill="#D85A30" opacity="0.2"></rect><ellipse cx="33" cy="17" rx="7" ry="2" fill="none" stroke="#88C0D0" stroke-width="1" opacity="0.7"></ellipse><line x1="30" y1="22" x2="33" y2="19" stroke="#88C0D0" stroke-width="0.8" opacity="0.6"></line><polygon points="22,35 18,40 26,40" fill="#3B4252" opacity="0.2"></polygon></svg></div>
+          <div class="mod-info"><div class="mod-name">Estrés Laboral</div><div class="mod-desc">Mide el estrés originado en las condiciones de trabajo: carga, autonomía, apoyo del supervisor y pares. Usa el modelo JDCS con factor de resiliencia individual.</div></div>
+          <div class="mod-impact mi-warn">Sin él: −12% FISP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="20" cy="16" r="7" fill="none" stroke="#3B4252" stroke-width="0.8" opacity="0.4"></circle><line x1="20" y1="23" x2="20" y2="34" stroke="#3B4252" stroke-width="0.8" opacity="0.35"></line><line x1="14" y1="27" x2="26" y2="27" stroke="#3B4252" stroke-width="0.8" opacity="0.35"></line><circle cx="34" cy="14" r="7" fill="none" stroke="#88C0D0" stroke-width="0.8" opacity="0.3" stroke-dasharray="2,2"></circle><line x1="34" y1="11" x2="34" y2="15" stroke="#3B4252" stroke-width="1.2" opacity="0.4"></line><circle cx="34" cy="18" r="1" fill="#3B4252" opacity="0.4"></circle><path d="M31,9 Q34,6 37,9 Q39,12 34,14" fill="none" stroke="#3B4252" stroke-width="1" opacity="0.4"></path></svg></div>
+          <div class="mod-info"><div class="mod-name">Estrés Personal</div><div class="mod-desc">Mide el estrés de origen personal con consentimiento explícito. Si la persona no reporta, aplica un factor de incertidumbre — no asume que ausencia de dato significa ausencia de estrés.</div></div>
+          <div class="mod-impact mi-warn">Sin él: −10% FISP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><path d="M8,14 Q18,14 22,22" fill="none" stroke="#88C0D0" stroke-width="5" opacity="0.2"></path><path d="M8,14 Q18,14 22,22" fill="none" stroke="#88C0D0" stroke-width="1.2" opacity="0.8"></path><path d="M8,30 Q18,30 22,22" fill="none" stroke="#B48EAD" stroke-width="5" opacity="0.15"></path><path d="M8,30 Q18,30 22,22" fill="none" stroke="#B48EAD" stroke-width="1.2" opacity="0.7"></path><circle cx="22" cy="22" r="3.5" fill="#fff" stroke="#88C0D0" stroke-width="1"></circle><path d="M22,22 Q30,22 36,22" fill="none" stroke="#3B4252" stroke-width="1.3" opacity="0.6"></path><line x1="33" y1="19" x2="36" y2="22" stroke="#3B4252" stroke-width="1.3" opacity="0.6"></line><line x1="33" y1="25" x2="36" y2="22" stroke="#3B4252" stroke-width="1.3" opacity="0.6"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">Estrés Total 60/40</div><div class="mod-desc">Combina el estrés laboral y el personal en un índice unificado ponderado 60% laboral / 40% personal. Sin él, el FISP ignora la dimensión de estrés completa.</div></div>
+          <div class="mod-impact mi-warn">Sin él: −8% FISP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="28" width="5" height="10" rx="1" fill="#00B4D8" opacity="0.2"></rect><rect x="15" y="24" width="5" height="14" rx="1" fill="#00B4D8" opacity="0.35"></rect><rect x="22" y="19" width="5" height="19" rx="1" fill="#00B4D8" opacity="0.52"></rect><rect x="29" y="15" width="5" height="23" rx="1" fill="#00B4D8" opacity="0.7"></rect><rect x="36" y="11" width="5" height="27" rx="1" fill="#00B4D8" opacity="0.9"></rect><line x1="6" y1="38" x2="42" y2="38" stroke="#3B4252" stroke-width="0.6" opacity="0.25"></line><path d="M10,30 L17,26 L24,21 L31,17 L38,13" fill="none" stroke="#3B4252" stroke-width="0.8" opacity="0.4" stroke-dasharray="2,2"></path></svg></div>
+          <div class="mod-info"><div class="mod-name">Historial Normalizado</div><div class="mod-desc">Ventana deslizante de 6 meses con mayor peso en los meses recientes. Evita que un buen mes tape un mal semestre — da contexto temporal al estado actual.</div></div>
+          <div class="mod-impact mi-med">Sin él: −5% SP / −5% FISP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="10" y="10" width="24" height="5" rx="1.5" fill="#3B6D11" opacity="0.5"></rect><rect x="10" y="18" width="18" height="5" rx="1.5" fill="#BA7517" opacity="0.5"></rect><rect x="10" y="26" width="12" height="5" rx="1.5" fill="#D85A30" opacity="0.5"></rect><rect x="10" y="34" width="7" height="5" rx="1.5" fill="#D85A30" opacity="0.7"></rect><line x1="36" y1="13" x2="36" y2="38" stroke="#D85A30" stroke-width="0.8" opacity="0.4"></line><line x1="33" y1="35" x2="36" y2="40" stroke="#D85A30" stroke-width="0.8" opacity="0.4"></line><line x1="39" y1="35" x2="36" y2="40" stroke="#D85A30" stroke-width="0.8" opacity="0.4"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">Penalización Persona</div><div class="mod-desc">Aplica un descuento acumulativo al FISP cuando hay incumplimientos reiterados. Premia la consistencia y diferencia a quien falla una vez de quien falla siempre.</div></div>
+          <div class="mod-impact mi-med">Sin él: −4% FISP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><path d="M8,36 A18,18 0 0,1 36,36" fill="none" stroke="#E0E4EA" stroke-width="2.5"></path><path d="M8,36 A18,18 0 0,1 22,18" fill="none" stroke="#88C0D0" stroke-width="2.5"></path><path d="M22,18 A18,18 0 0,1 36,36" fill="none" stroke="#D85A30" stroke-width="2.5"></path><line x1="22" y1="36" x2="31" y2="22" stroke="#D85A30" stroke-width="1.5" opacity="0.9"></line><circle cx="22" cy="36" r="3" fill="#fff" stroke="#3B4252" stroke-width="1"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">Velocidad de Deterioro</div><div class="mod-desc">Mide qué tan rápido cae el Service Performance (SP) entre dos mediciones. Un proceso puede estar aún en zona verde pero cayendo a alta velocidad — este módulo lo detecta antes.</div></div>
+          <div class="mod-impact mi-warn">Sin él: −12% SP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="16" y="6" width="12" height="8" rx="2" fill="#D85A30" opacity="0.3" stroke="#D85A30" stroke-width="0.8"></rect><line x1="22" y1="14" x2="22" y2="19" stroke="#D85A30" stroke-width="0.8" opacity="0.6"></line><rect x="6" y="19" width="11" height="7" rx="1.5" fill="#D85A30" opacity="0.2" stroke="#D85A30" stroke-width="0.7"></rect><rect x="20" y="19" width="11" height="7" rx="1.5" fill="#D85A30" opacity="0.2" stroke="#D85A30" stroke-width="0.7"></rect><line x1="17" y1="19" x2="11" y2="26" stroke="#D85A30" stroke-width="0.7" opacity="0.5"></line><line x1="27" y1="19" x2="31" y2="26" stroke="#D85A30" stroke-width="0.7" opacity="0.5"></line><rect x="2" y="28" width="9" height="6" rx="1.5" fill="#BA7517" opacity="0.2" stroke="#BA7517" stroke-width="0.6"></rect><rect x="17" y="28" width="9" height="6" rx="1.5" fill="#BA7517" opacity="0.2" stroke="#BA7517" stroke-width="0.6"></rect><rect x="32" y="28" width="9" height="6" rx="1.5" fill="#BA7517" opacity="0.2" stroke="#BA7517" stroke-width="0.6"></rect></svg></div>
+          <div class="mod-info"><div class="mod-name">Cascada de Deterioro</div><div class="mod-desc">Propaga el deterioro de un proceso a los procesos que dependen de él. Sin este módulo, un proceso bloqueado puede estar afectando a tres más sin que el sistema lo vea.</div></div>
+          <div class="mod-impact mi-warn">Sin él: −8% SP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="12" width="10" height="22" rx="1.5" fill="#3B6D11" opacity="0.2" stroke="#3B6D11" stroke-width="0.7"></rect><rect x="8" y="12" width="10" height="14" rx="1.5" fill="#3B6D11" opacity="0.5"></rect><rect x="22" y="12" width="10" height="22" rx="1.5" fill="#BA7517" opacity="0.15" stroke="#BA7517" stroke-width="0.7"></rect><rect x="22" y="12" width="10" height="10" rx="1.5" fill="#BA7517" opacity="0.45"></rect><rect x="36" y="12" width="10" height="22" rx="1.5" fill="#D85A30" opacity="0.12" stroke="#D85A30" stroke-width="0.7"></rect><rect x="36" y="12" width="10" height="6" rx="1.5" fill="#D85A30" opacity="0.4"></rect><path d="M13,32 Q29,36 41,32" fill="none" stroke="#D85A30" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"></path></svg></div>
+          <div class="mod-info"><div class="mod-name">Penalización Proceso</div><div class="mod-desc">Aplica descuento acumulativo al SP cuando un proceso incumple repetidamente sus estimaciones. Diferencia entre fallar una vez y fallar sistemáticamente.</div></div>
+          <div class="mod-impact mi-med">Sin él: −5% SP</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="tier-block">
+      <div class="tier-head">
+        <div class="tier-badge tb-prem">Premium</div>
+        <div class="tier-desc-t">Casos especiales de alto impacto</div>
+        <div class="tier-line-l"></div>
+      </div>
+      <div class="mod-grid">
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="8" cy="34" r="1.8" fill="#3B4252" opacity="0.5"></circle><circle cx="14" cy="28" r="1.8" fill="#3B4252" opacity="0.5"></circle><circle cx="20" cy="30" r="1.8" fill="#3B4252" opacity="0.5"></circle><circle cx="26" cy="22" r="1.8" fill="#3B4252" opacity="0.5"></circle><path d="M8,34 L14,28 L20,30 L26,22" fill="none" stroke="#88C0D0" stroke-width="1.2" opacity="0.7"></path><line x1="26" y1="8" x2="26" y2="36" stroke="#3B4252" stroke-width="0.6" opacity="0.15" stroke-dasharray="2,2"></line><path d="M26,22 Q32,16 38,12" fill="none" stroke="#B48EAD" stroke-width="1.3" opacity="0.8" stroke-dasharray="3,2"></path><circle cx="32" cy="17" r="2" fill="#B48EAD" opacity="0.7"></circle><circle cx="38" cy="12" r="2" fill="#B48EAD" opacity="0.7"></circle><circle cx="26" cy="22" r="3" fill="#fff" stroke="#88C0D0" stroke-width="1"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">Predicción ML de Estrés</div><div class="mod-desc">Entrena un modelo de Machine Learning por empresa que predice el estrés futuro basado en patrones históricos. Sin él, el FISP es descriptivo — mide lo que ya ocurrió, no lo que viene.</div></div>
+          <div class="mod-impact mi-med">Sin él: modo reactivo</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="22" cy="22" r="4" fill="#EBCB8B" opacity="0.5" stroke="#EBCB8B" stroke-width="1"></circle><circle cx="22" cy="22" r="9" fill="none" stroke="#EBCB8B" stroke-width="1" opacity="0.5"></circle><circle cx="22" cy="22" r="15" fill="none" stroke="#EBCB8B" stroke-width="0.8" opacity="0.3"></circle><circle cx="22" cy="22" r="21" fill="none" stroke="#EBCB8B" stroke-width="0.5" opacity="0.15"></circle><rect x="6" y="36" width="8" height="6" rx="1.5" fill="none" stroke="#3B6D11" stroke-width="0.8" opacity="0.6"></rect><polyline points="8,39.5 10.5,42 14,37" fill="none" stroke="#3B6D11" stroke-width="1" opacity="0.8"></polyline></svg></div>
+          <div class="mod-info"><div class="mod-name">FIC Personal — Factor de Incertidumbre Crítico Individual</div><div class="mod-desc">Incorpora eventos de vida (duelo, divorcio, enfermedad) con consentimiento explícito usando la escala Holmes &amp; Rahe. Sin él, las métricas son técnicamente correctas pero humanamente injustas.</div></div>
+          <div class="mod-impact mi-warn">Sin él: −15% equidad FISP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="13" cy="14" r="6" fill="none" stroke="#D85A30" stroke-width="0.8" opacity="0.6"></circle><line x1="13" y1="20" x2="13" y2="30" stroke="#D85A30" stroke-width="0.7" opacity="0.5"></line><rect x="17" y="22" width="12" height="8" rx="2" fill="#EEF6F9" stroke="#88C0D0" stroke-width="0.8" opacity="0.7"></rect><path d="M29,26 Q35,23 33,16" fill="none" stroke="#88C0D0" stroke-width="1" opacity="0.7"></path><circle cx="33" cy="13" r="6" fill="none" stroke="#88C0D0" stroke-width="0.8" opacity="0.7"></circle><path d="M30,32 L30,40 Q30,42 33,42 Q36,42 36,40 L36,32 Z" fill="none" stroke="#88C0D0" stroke-width="0.8" opacity="0.4"></path><path d="M30,34 L30,39 Q30,41 33,41 Q36,41 36,39 L36,34 Z" fill="#00B4D8" opacity="0.1"></path></svg></div>
+          <div class="mod-info"><div class="mod-name">FIC Operacional — Impacto de Reasignación</div><div class="mod-desc">Cuando se reasigna una tarea de una persona en crisis a otra, protege al receptor. Sin él, el sistema castigará con malas métricas a quien ayuda — desincentivando la colaboración.</div></div>
+          <div class="mod-impact mi-warn">Sin él: −10% SP receptor</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="10" cy="16" r="4" fill="none" stroke="#EBCB8B" stroke-width="0.8" opacity="0.6"></circle><circle cx="20" cy="12" r="4" fill="none" stroke="#EBCB8B" stroke-width="0.8" opacity="0.6"></circle><circle cx="30" cy="16" r="4" fill="none" stroke="#EBCB8B" stroke-width="0.8" opacity="0.6"></circle><circle cx="38" cy="14" r="4" fill="none" stroke="#EBCB8B" stroke-width="0.8" opacity="0.5"></circle><path d="M6,26 Q22,20 38,26" fill="none" stroke="#EBCB8B" stroke-width="1.2" opacity="0.7"></path><path d="M6,30 Q22,24 38,30" fill="none" stroke="#EBCB8B" stroke-width="0.7" opacity="0.4"></path><line x1="6" y1="36" x2="38" y2="36" stroke="#88C0D0" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,3"></line><line x1="22" y1="30" x2="22" y2="35" stroke="#88C0D0" stroke-width="0.8" opacity="0.4"></line><line x1="19" y1="33" x2="22" y2="36" stroke="#88C0D0" stroke-width="0.8" opacity="0.4"></line><line x1="25" y1="33" x2="22" y2="36" stroke="#88C0D0" stroke-width="0.8" opacity="0.4"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">FIC Colectivo — Crisis Sistémica</div><div class="mod-desc">Ajusta las métricas cuando un evento masivo (pandemia, crisis económica) afecta a toda la organización. Sin él, no hay forma de distinguir bajo rendimiento individual de bajo rendimiento colectivo.</div></div>
+          <div class="mod-impact mi-med">Sin él: −5% SP / −5% FISP</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="18" y="8" width="16" height="28" rx="2" fill="#EBCB8B" opacity="0.1"></rect><line x1="18" y1="6" x2="18" y2="38" stroke="#EBCB8B" stroke-width="0.8" opacity="0.5" stroke-dasharray="2,2"></line><line x1="34" y1="6" x2="34" y2="38" stroke="#EBCB8B" stroke-width="0.8" opacity="0.5" stroke-dasharray="2,2"></line><path d="M6,18 L18,18 L34,22" fill="none" stroke="#88C0D0" stroke-width="1.4" opacity="0.9"></path><path d="M6,18 L18,18 L34,34" fill="none" stroke="#D85A30" stroke-width="1" opacity="0.4" stroke-dasharray="3,2"></path><path d="M34,22 L38,24" fill="none" stroke="#88C0D0" stroke-width="1.4" opacity="0.7"></path><circle cx="6" cy="18" r="2" fill="#00B4D8"></circle><circle cx="18" cy="18" r="2" fill="#00B4D8"></circle><circle cx="34" cy="22" r="2" fill="#00B4D8"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">SP Proporcional — Delta de Gracia</div><div class="mod-desc">Durante el período de gracia de un Factor de Incertidumbre Crítico (FIC) activo, el Service Performance (SP) se ajusta proporcionalmente. Sin él, el proceso se verá en rojo por una razón protegida.</div></div>
+          <div class="mod-impact mi-warn">Sin él: SP injusto en crisis</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="6" y="18" width="22" height="7" rx="2" fill="#00B4D8" opacity="0.25" stroke="#88C0D0" stroke-width="0.8"></rect><rect x="28" y="18" width="10" height="7" rx="2" fill="#EBCB8B" opacity="0.25" stroke="#EBCB8B" stroke-width="0.8" stroke-dasharray="2,1.5"></rect><line x1="28" y1="14" x2="28" y2="27" stroke="#3B4252" stroke-width="0.7" opacity="0.3"></line><line x1="38" y1="12" x2="38" y2="27" stroke="#EBCB8B" stroke-width="0.7" opacity="0.5" stroke-dasharray="2,2"></line><circle cx="22" cy="10" r="4" fill="none" stroke="#EBCB8B" stroke-width="0.8" opacity="0.5"></circle><circle cx="34" cy="34" r="6" fill="none" stroke="#88C0D0" stroke-width="0.8" opacity="0.35"></circle><circle cx="34" cy="34" r="3" fill="none" stroke="#88C0D0" stroke-width="0.6" opacity="0.4"></circle><circle cx="34" cy="34" r="1.5" fill="#00B4D8" opacity="0.5"></circle><line x1="34" y1="27" x2="34" y2="29" stroke="#88C0D0" stroke-width="1.2" opacity="0.35"></line><line x1="34" y1="39" x2="34" y2="41" stroke="#88C0D0" stroke-width="1.2" opacity="0.35"></line><line x1="27" y1="34" x2="29" y2="34" stroke="#88C0D0" stroke-width="1.2" opacity="0.35"></line><line x1="39" y1="34" x2="41" y2="34" stroke="#88C0D0" stroke-width="1.2" opacity="0.35"></line></svg></div>
+          <div class="mod-info"><div class="mod-name">Extensión Automática por FIC</div><div class="mod-desc">Cuando el Factor de Incertidumbre Crítico (FIC) supera el umbral configurado, el sistema extiende los plazos automáticamente y notifica al Project Manager con la justificación y el nuevo plazo calculado.</div></div>
+          <div class="mod-impact mi-med">Sin él: extensión manual</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="30" width="5" height="8" rx="1" fill="#EBCB8B" opacity="0.4"></rect><rect x="15" y="24" width="5" height="14" rx="1" fill="#EBCB8B" opacity="0.55"></rect><rect x="22" y="18" width="5" height="20" rx="1" fill="#EBCB8B" opacity="0.7"></rect><rect x="29" y="13" width="5" height="25" rx="1" fill="#EBCB8B" opacity="0.85"></rect><line x1="6" y1="11" x2="38" y2="11" stroke="#D85A30" stroke-width="1.2" opacity="0.7" stroke-dasharray="3,2"></line><line x1="36" y1="8" x2="38" y2="11" stroke="#D85A30" stroke-width="1.2" opacity="0.7"></line><line x1="36" y1="14" x2="38" y2="11" stroke="#D85A30" stroke-width="1.2" opacity="0.7"></line><circle cx="29" cy="11" r="2.5" fill="#D85A30" opacity="0.8"></circle></svg></div>
+          <div class="mod-info"><div class="mod-name">Umbral de Saturación Crítica</div><div class="mod-desc">El Motor de IA aprende cuántas tareas críticas puede absorber cada persona sin que su Índice de Retrabajo se dispare. Ese umbral es personal, dinámico y recalculado automáticamente cada 3 sprints.</div></div>
+          <div class="mod-impact mi-med">Sin él: asignación a ciegas</div>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="6" y="18" width="24" height="8" rx="2" fill="#EBCB8B" opacity="0.2" stroke="#EBCB8B" stroke-width="0.8"></rect><rect x="6" y="28" width="32" height="8" rx="2" fill="#D85A30" opacity="0.12" stroke="#D85A30" stroke-width="0.8" stroke-dasharray="2,1.5"></rect><line x1="30" y1="14" x2="30" y2="28" stroke="#3B4252" stroke-width="0.7" opacity="0.3"></line><rect x="30" y="14" width="8" height="12" rx="2" fill="#D85A30" opacity="0.15" stroke="#D85A30" stroke-width="0.8" stroke-dasharray="2,1.5"></rect><circle cx="38" cy="9" r="5" fill="none" stroke="#3B6D11" stroke-width="0.8" opacity="0.6"></circle><polyline points="35.5,9 37.5,11 41,7" fill="none" stroke="#3B6D11" stroke-width="1" opacity="0.8"></polyline></svg></div>
+          <div class="mod-info"><div class="mod-name">FIC de Carga Crítica</div><div class="mod-desc">Cuando la IA debe asignar más tareas críticas de las que una persona puede absorber por necesidad operacional, activa un período de gracia automático en SP y FISP y notifica al manager con el impacto calculado.</div></div>
+          <div class="mod-impact mi-med">Sin él: sobrecarga silenciosa</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<!-- ══ NIMs — oscuro ══ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#88C0D0"><div class="eline-dark"></div> Alertas inteligentes</div>
+    <h2 class="h2-dark">El sistema habla antes de que <em class="accent">el problema escale</em></h2>
+    <div class="nim-layout">
+      <div class="nim-text">
+        <h3>Las NIMs — Notificaciones de Intervención y Monitoreo</h3>
+        <p>Cuando el Motor de IA detecta que algo está fuera del umbral — en el Service Performance (SP) del proceso o en el Factor Integral de Salud de la Persona (FISP) — genera una alerta con contexto, diagnóstico y acceso directo a iUbot para decidir qué hacer.</p>
+        <p>No es solo una alerta. Es un punto de intervención asistida por inteligencia artificial que considera tanto el estado del proceso como el bienestar del equipo.</p>
+        <div style="margin-top:20px"><a class="btn-g-dark" href="#" onclick="openModal();return false;">Ver cómo funcionan las NIMs →</a></div>
+      </div>
+      <div>
+        <div class="nim-card nim-o"><div class="nim-c-title">Diego S. · bienestar en caída sostenida</div><div class="nim-c-desc">Factor Integral de Salud de la Persona (FISP) bajó 13 puntos en 3 semanas. Velocidad de deterioro 2.4. Diagnóstico: tensión con liderazgo directo.</div><div class="nim-c-tag tag-o">Alerta naranja · Intervención recomendada</div></div>
+        <div class="nim-card nim-o"><div class="nim-c-title">Testing QA · rendimiento en riesgo de cascada</div><div class="nim-c-desc">Service Performance (SP) en 55%. Dependencia con Auth API bloqueada. Impacto proyectado: +12 días en entrega final.</div><div class="nim-c-tag tag-o">Alerta naranja · Riesgo de entrega</div></div>
+        <div class="nim-card nim-y"><div class="nim-c-title">Ana M. · Factor de Incertidumbre Crítico activo</div><div class="nim-c-desc">Factor de Incertidumbre Crítico (FIC) activado. Sistema aplicó período de gracia automático. Impacto en proceso absorbido.</div><div class="nim-c-tag tag-y">Alerta amarilla · En monitoreo</div></div>
+        <div class="nim-card nim-g"><div class="nim-c-title">Integración Backend · todo en verde</div><div class="nim-c-desc">Carlos R. estable. SP 85%, FISP 83%. Sin alertas activas. Entrega en fecha según estimación PERT original.</div><div class="nim-c-tag tag-g">Sin alertas · Seguimiento normal</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ROLES — blanco ══ -->
+<section class="light" id="roles">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#3B4252"><div class="eline-light"></div> Visibilidad por rol</div>
+    <h2 class="h2-light">Cada nivel ve <em class="accent-d">exactamente lo que necesita</em></h2>
+    <p class="desc-light">iUbits implementa visibilidad estricta por jerarquía. La información sensible solo llega a quien corresponde. No existe una vista global abierta.</p>
+    <div class="roles">
+      <div class="role-c"><div class="role-badge rb-pm">PM</div><div class="role-t">Project Manager</div><div class="role-d">Gestiona sus proyectos asignados. Ve el estado de su equipo, sus procesos y sus alertas de Intervención y Monitoreo (NIMs).</div><div class="role-s">Sus proyectos →</div></div>
+      <div class="role-c"><div class="role-badge rb-pmo">PMO</div><div class="role-t">PMO</div><div class="role-d">Audita todos los proyectos de sus Project Managers con métricas consolidadas y alertas del programa completo.</div><div class="role-s">Proyectos del programa →</div></div>
+      <div class="role-c"><div class="role-badge rb-dir">Portafolio</div><div class="role-t">Director de Portafolio</div><div class="role-d">Vista ejecutiva agrupada por PMO. Aprueba presupuestos y asigna proyectos al portafolio correspondiente.</div><div class="role-s">Su portafolio →</div></div>
+      <div class="role-c"><div class="role-badge rb-prog">Programa</div><div class="role-t">Director de Programa</div><div class="role-d">Vista C-Level de todos los portafolios. Riesgos de escalación y métricas del programa completo en tiempo real.</div><div class="role-s">Todos los portafolios →</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA — oscuro ══ -->
+<section class="dark">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow" style="color:#88C0D0;justify-content:center"><div class="eline-dark"></div> Empieza hoy <div class="eline-dark"></div></div>
+    <h2 class="h2-dark" style="max-width:520px;margin:0 auto 16px;">¿Tu equipo está <em class="accent">realmente</em> bien?</h2>
+    <p class="desc-dark" style="margin:0 auto 36px;text-align:center;">iUbits te lo dice. Con evidencia, en tiempo real, respetando la privacidad de cada persona.</p>
+    <div style="display:flex;gap:12px;justify-content:center;">
+      <a class="btn-p" href="#" onclick="openModal();return false;">Solicitar acceso</a>
+      <a class="btn-g-dark" href="#" onclick="openModal();return false;">Solicitar acceso anticipado →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 46" height="28" style="display:block;opacity:0.7;">
+  <defs>
+    <linearGradient id="og2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="100%" stop-color="#E07820"/>
+    </linearGradient>
+  </defs>
+  <text font-family="'Arial Black', sans-serif" font-weight="900" font-size="32" fill="#00B4D8" dominant-baseline="auto" y="42"><tspan>i</tspan><tspan dx="-2">U</tspan><tspan dx="-1">bits</tspan></text>
+  <circle cx="5" cy="19" r="4.5" fill="url(#og2)"/>
+  <circle cx="61" cy="19" r="4.5" fill="#00B4D8"/>
+</svg>
+  <div class="footer-tag">"Los procesos los ejecutan personas."</div>
+  <div class="footer-copy">Internet Unique Business Intelligence Treatment System · 2026</div>
+</footer>
+
+
+
+
+<!-- ══ MODAL LISTA DE ESPERA ══ -->
+<div class="modal-overlay" id="waitlistModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <div id="modalForm">
+      <div class="modal-eyebrow"><div class="eline-dark"></div> Lista de espera</div>
+      <div class="modal-title">Sé el primero en <em class="accent">acceder</em></div>
+      <p class="modal-desc">iUbits está en desarrollo activo. Déjanos tu email y te avisamos cuando esté listo para tu organización.</p>
+      <form class="modal-form" action="https://formspree.io/f/mvzvjqae" method="POST" onsubmit="handleSubmit(event)">
+        <input class="modal-input" type="text" name="nombre" placeholder="Tu nombre" required>
+        <input class="modal-input" type="email" name="email" placeholder="Tu email corporativo" required>
+        <input class="modal-input" type="text" name="empresa" placeholder="Empresa (opcional)">
+        <input type="hidden" name="_subject" value="iUbits — Nueva solicitud de acceso">
+        <button class="modal-submit" type="submit">Notifícame cuando esté disponible →</button>
+      </form>
+      <p class="modal-privacy">Sin spam. Solo te escribimos cuando el sistema esté listo.</p>
+    </div>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-icon">✓</div>
+      <div class="modal-success-title">¡Quedaste en la lista!</div>
+      <p class="modal-success-desc">Te avisaremos cuando iUbits esté disponible para tu organización. Gracias por tu interés.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById('waitlistModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('waitlistModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('waitlistModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.modal-submit');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('modalForm').style.display = 'none';
+      document.getElementById('modalSuccess').classList.add('active');
+    } else {
+      btn.textContent = 'Error — intenta de nuevo';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = 'Error — intenta de nuevo';
+    btn.disabled = false;
+  }
+}
+</script>
+
+</body></html>
