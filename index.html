@@ -55,8 +55,8 @@ nav {
 .h2-light { font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 34px; line-height: 1.2; color: rgba(26,26,26,0.70);  font-weight: 900; margin-bottom: 16px; }
 .accent   { color: #00B4D8; font-style: italic; }
 .accent-d { color: #00B4D8; font-style: italic; }
-.desc-dark  { font-size: 15px; color: #81909E; line-height: 1.85; max-width: 540px; }
-.desc-light { font-size: 15px; color: #555;    line-height: 1.85; max-width: 540px; }
+.desc-dark  { font-size: 15px; color: #9AABB8; line-height: 1.85; max-width: 540px; }
+.desc-light { font-size: 15px; color: #444;    line-height: 1.85; max-width: 540px; }
 
 .btn-p { padding: 12px 28px; border-radius: 6px; background: #00B4D8; color: #1E2330; font-size: 14px; font-weight: 500; cursor: pointer; border: none; font-family: inherit; transition: background 0.2s; text-decoration: none; display: inline-block; }
 .btn-p:hover { background: #00C8F0; }
@@ -229,11 +229,79 @@ nav {
 
 /* SVG inline helpers */
 .icon-bg { fill: #EEF6F9; }
+
+/* ══ RESPONSIVE MÓVIL ══ */
+@media (max-width: 768px) {
+
+  nav {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .nav-links { display: none; }
+
+  .wrap { padding: 56px 24px; }
+
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .h1-dark { font-size: 36px; }
+  .h2-dark, .h2-light { font-size: 26px; }
+
+  /* Dashboard — ocultar en móvil, muy complejo para pantalla pequeña */
+  .hero .dash { display: none; }
+
+  /* Problema */
+  .prob-grid { grid-template-columns: 1fr; }
+
+  /* Filosofía */
+  .phil-layout { grid-template-columns: 1fr; gap: 32px; }
+  .phil-quote { font-size: 20px; }
+
+  /* Framework */
+  .fw-cols { grid-template-columns: 1fr; }
+
+  /* Pasos */
+  .steps { grid-template-columns: 1fr 1fr; }
+
+  /* NIMs */
+  .nim-layout { grid-template-columns: 1fr; }
+
+  /* Módulos */
+  .mods-intro { grid-template-columns: 1fr; gap: 32px; }
+  .mod-grid { grid-template-columns: 1fr; }
+
+  /* Roles */
+  .roles { grid-template-columns: 1fr 1fr; }
+
+  /* Footer */
+  .footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+
+  /* Modal */
+  .modal-box { padding: 28px 24px; }
+
+  /* Botones */
+  .actions { flex-direction: column; }
+  .btn-p, .btn-g-dark, .btn-g-light { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .h1-dark { font-size: 30px; }
+  .h2-dark, .h2-light { font-size: 22px; }
+  .steps { grid-template-columns: 1fr; }
+  .roles { grid-template-columns: 1fr; }
+  nav { padding: 12px 16px; }
+  .wrap { padding: 44px 16px; }
+}
+
 </style>
 </head>
 <body>
 
 <!-- NAV -->
+<a href="#framework" style="position:absolute;top:-40px;left:0;background:#00B4D8;color:#1E2330;padding:8px 16px;font-weight:500;font-size:13px;z-index:9999;border-radius:0 0 6px 0;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Ir al contenido principal</a>
 <nav>
   <a href="#" style="display:flex;align-items:center;text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 46" height="42" style="display:block;">
   <defs>
@@ -264,7 +332,7 @@ nav {
         <h1 class="h1-dark">Los proyectos los ejecutan <em class="accent">personas</em></h1>
         <p class="desc-dark">iUbits es un sistema de gestión que mide simultáneamente el rendimiento de los procesos y el bienestar de quienes los ejecutan. Porque si las personas no están bien, los procesos fallan.</p>
         <div class="actions">
-          <a class="btn-p" href="#" onclick="openModal();return false;">Solicitar acceso</a>
+          <a class="btn-p" href="#" onclick="openModal();return false;" aria-label="Solicitar acceso a iUbits">Solicitar acceso</a>
           <a class="btn-g-dark" href="#framework">Ver el framework →</a>
         </div>
       </div>
@@ -665,7 +733,7 @@ nav {
     <h2 class="h2-dark" style="max-width:520px;margin:0 auto 16px;">¿Tu equipo está <em class="accent">realmente</em> bien?</h2>
     <p class="desc-dark" style="margin:0 auto 36px;text-align:center;">iUbits te lo dice. Con evidencia, en tiempo real, respetando la privacidad de cada persona.</p>
     <div style="display:flex;gap:12px;justify-content:center;">
-      <a class="btn-p" href="#" onclick="openModal();return false;">Solicitar acceso</a>
+      <a class="btn-p" href="#" onclick="openModal();return false;" aria-label="Solicitar acceso a iUbits">Solicitar acceso</a>
       <a class="btn-g-dark" href="#" onclick="openModal();return false;">Solicitar acceso anticipado →</a>
     </div>
   </div>
@@ -701,9 +769,9 @@ nav {
       <div class="modal-title">Sé el primero en <em class="accent">acceder</em></div>
       <p class="modal-desc">iUbits está en desarrollo activo. Déjanos tu email y te avisamos cuando esté listo para tu organización.</p>
       <form class="modal-form" action="https://formspree.io/f/mvzvjqae" method="POST" onsubmit="handleSubmit(event)">
-        <input class="modal-input" type="text" name="nombre" placeholder="Tu nombre" required>
-        <input class="modal-input" type="email" name="email" placeholder="Tu email corporativo" required>
-        <input class="modal-input" type="text" name="empresa" placeholder="Empresa (opcional)">
+        <input class="modal-input" type="text" name="nombre" placeholder="Tu nombre" aria-label="Tu nombre" required>
+        <input class="modal-input" type="email" name="email" placeholder="Tu email corporativo" aria-label="Tu email corporativo" required>
+        <input class="modal-input" type="text" name="empresa" placeholder="Empresa (opcional)" aria-label="Empresa">
         <input type="hidden" name="_subject" value="iUbits — Nueva solicitud de acceso">
         <button class="modal-submit" type="submit">Notifícame cuando esté disponible →</button>
       </form>
