@@ -55,8 +55,8 @@ nav {
 .h2-light { font-family: 'Arial Black', 'Arial Bold', sans-serif; font-size: 34px; line-height: 1.2; color: rgba(26,26,26,0.70);  font-weight: 900; margin-bottom: 16px; }
 .accent   { color: #00B4D8; font-style: italic; }
 .accent-d { color: #00B4D8; font-style: italic; }
-.desc-dark  { font-size: 15px; color: #81909E; line-height: 1.85; max-width: 540px; }
-.desc-light { font-size: 15px; color: #555;    line-height: 1.85; max-width: 540px; }
+.desc-dark  { font-size: 15px; color: #9AABB8; line-height: 1.85; max-width: 540px; }
+.desc-light { font-size: 15px; color: #444;    line-height: 1.85; max-width: 540px; }
 
 .btn-p { padding: 12px 28px; border-radius: 6px; background: #00B4D8; color: #1E2330; font-size: 14px; font-weight: 500; cursor: pointer; border: none; font-family: inherit; transition: background 0.2s; text-decoration: none; display: inline-block; }
 .btn-p:hover { background: #00C8F0; }
@@ -229,11 +229,83 @@ nav {
 
 /* SVG inline helpers */
 .icon-bg { fill: #EEF6F9; }
+
+/* ══ RESPONSIVE MÓVIL ══ */
+@media (max-width: 768px) {
+
+  /* Logo en móvil */
+  nav svg { height: 28px !important; }
+  nav { padding: 12px 20px; }
+
+  nav {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .nav-links { display: none; }
+
+  .wrap { padding: 56px 24px; }
+
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .h1-dark { font-size: 36px; }
+  .h2-dark, .h2-light { font-size: 26px; }
+
+  /* Dashboard — ocultar en móvil, muy complejo para pantalla pequeña */
+  .hero .dash { display: none; }
+
+  /* Problema */
+  .prob-grid { grid-template-columns: 1fr; }
+
+  /* Filosofía */
+  .phil-layout { grid-template-columns: 1fr; gap: 32px; }
+  .phil-quote { font-size: 20px; }
+
+  /* Framework */
+  .fw-cols { grid-template-columns: 1fr; }
+
+  /* Pasos */
+  .steps { grid-template-columns: 1fr 1fr; }
+
+  /* NIMs */
+  .nim-layout { grid-template-columns: 1fr; }
+
+  /* Módulos */
+  .mods-intro { grid-template-columns: 1fr; gap: 32px; }
+  .mod-grid { grid-template-columns: 1fr; }
+
+  /* Roles */
+  .roles { grid-template-columns: 1fr 1fr; }
+
+  /* Footer */
+  .footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+
+  /* Modal */
+  .modal-box { padding: 28px 24px; }
+
+  /* Botones */
+  .actions { flex-direction: column; }
+  .btn-p, .btn-g-dark, .btn-g-light { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .h1-dark { font-size: 30px; }
+  .h2-dark, .h2-light { font-size: 22px; }
+  .steps { grid-template-columns: 1fr; }
+  .roles { grid-template-columns: 1fr; }
+  nav { padding: 12px 16px; }
+  .wrap { padding: 44px 16px; }
+}
+
 </style>
 </head>
 <body>
 
 <!-- NAV -->
+<a href="#framework" style="position:absolute;top:-40px;left:0;background:#00B4D8;color:#1E2330;padding:8px 16px;font-weight:500;font-size:13px;z-index:9999;border-radius:0 0 6px 0;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Ir al contenido principal</a>
 <nav>
   <a href="#" style="display:flex;align-items:center;text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 46" height="42" style="display:block;">
   <defs>
@@ -262,9 +334,9 @@ nav {
       <div>
         <div class="eyebrow" style="color:#88C0D0"><div class="eline-dark"></div> Framework de gestión</div>
         <h1 class="h1-dark">Los proyectos los ejecutan <em class="accent">personas</em></h1>
-        <p class="desc-dark">iUbits es un sistema de gestión que mide simultáneamente el rendimiento de los procesos y el bienestar de quienes los ejecutan. Porque si las personas no están bien, los procesos tampoco</p>
+        <p class="desc-dark">iUbits es un sistema de gestión que mide simultáneamente el rendimiento de los procesos y el bienestar de quienes los ejecutan. Porque si las personas no están bien, los procesos fallan.</p>
         <div class="actions">
-          <a class="btn-p" href="#" onclick="openModal();return false;">Solicitar acceso</a>
+          <a class="btn-p" href="#" onclick="openModal();return false;" aria-label="Solicitar acceso a iUbits">Solicitar acceso</a>
           <a class="btn-g-dark" href="#framework">Ver el framework →</a>
         </div>
       </div>
@@ -278,7 +350,7 @@ nav {
         <div class="dash-body">
           <div class="d-metrics">
             <div class="d-m"><div class="d-ml">SP — Rendimiento del proceso</div><div class="d-mv">74% <div class="d-sc sc-y"></div></div></div>
-            <div class="d-m"><div class="d-ml">FISP — Bienestar de la persona</div><div class="d-mv">81% <div class="d-sc sc-g"></div></div></div>
+            <div class="d-m"><div class="d-ml">FISP — Bienestar del equipo</div><div class="d-mv">81% <div class="d-sc sc-g"></div></div></div>
           </div>
           <div class="d-row">
             <div><div class="d-rn">Integración Backend</div><div class="d-rs">Carlos Rodríguez</div></div>
@@ -334,7 +406,7 @@ nav {
     <div class="eyebrow" style="color:#88C0D0"><div class="eline-dark"></div> Filosofía</div>
     <h2 class="h2-dark">Un framework construido sobre <em class="accent">evidencia científica</em></h2>
     <div class="phil-layout">
-      <div class="phil-quote">"Los procesos los ejecutan <span>personas</span>. Si esas personas no están bien, los procesos <span>tampoco</span>."</div>
+      <div class="phil-quote">"Los procesos los ejecutan <span>personas</span>. Si esas personas no están bien, los procesos <span>fallan</span>."</div>
       <div class="phil-points">
         <div class="phil-point"><div class="pp-icon"><div class="pp-dot"></div></div><div><div class="pp-title">Modelo JD-R + JDCS</div><div class="pp-desc">Basado en los modelos psicológicos Job Demands-Resources y Job Demand-Control-Support, validados científicamente para medir bienestar laboral en organizaciones.</div></div></div>
         <div class="phil-point"><div class="pp-icon"><div class="pp-dot"></div></div><div><div class="pp-title">Escala Holmes &amp; Rahe</div><div class="pp-desc">Los eventos de vida impactan la capacidad de trabajo. iUbits los incorpora con consentimiento explícito como Factor de Incertidumbre Crítico (FIC).</div></div></div>
@@ -350,12 +422,12 @@ nav {
   <div class="wrap">
     <div class="eyebrow" style="color:#3B4252"><div class="eline-light"></div> El framework</div>
     <h2 class="h2-light">Dos métricas. Una visión <em class="accent-d">completa</em>.</h2>
-    <p class="desc-light">iUbits calcula en tiempo real dos indicadores que ninguna herramienta de gestión mide de forma integrada: el rendimiento del proceso y la satisfacción de quien lo ejecuta.</p>
+    <p class="desc-light">iUbits calcula en tiempo real dos indicadores que ninguna herramienta de gestión mide de forma integrada: el rendimiento del proceso y el bienestar de quien lo ejecuta.</p>
     <div class="fw-cols">
       <div class="fw-card">
         <div class="fw-label">Métrica del proceso</div>
         <div class="fw-name">SP</div>
-        <div class="fw-sub">Satisfacción Proceso — rendimiento real del proceso</div>
+        <div class="fw-sub">Satirfacción del Proceso — rendimiento real del proceso</div>
         <div class="fw-desc">Mide qué tan bien está ejecutándose el proceso en cada momento. Considera avance de tareas, alertas activas, velocidad de deterioro y efecto entre procesos dependientes.</div>
         <div class="fw-tag">Proceso</div>
       </div>
@@ -368,9 +440,9 @@ nav {
       </div>
       <div class="fw-card">
         <div class="fw-label">La unidad del sistema</div>
-        <div class="fw-name">iUbits</div>
+        <div class="fw-name">iUbit</div>
         <div class="fw-sub">Internet Unique Business Intelligence</div>
-        <div class="fw-desc">Cada iUbits registra el estado conjunto del proceso y de la persona en un momento dado, construyendo el historial inteligente del proyecto a lo largo del tiempo.</div>
+        <div class="fw-desc">Cada iUbit registra el estado conjunto del proceso y de la persona en un momento dado, construyendo el historial inteligente del proyecto a lo largo del tiempo.</div>
         <div class="fw-tag">Sistema</div>
       </div>
     </div>
@@ -387,7 +459,7 @@ nav {
       <div class="step-c"><div class="step-n">Paso 01</div><div class="step-t">Describe el proyecto</div><div class="step-d">El Project Manager describe en lenguaje natural qué quiere construir, para quién y con qué restricciones. iUbot escucha y procesa el contexto.</div></div>
       <div class="step-c"><div class="step-n">Paso 02</div><div class="step-t">iUbot genera la propuesta</div><div class="step-d">Historias de usuario, riesgos clasificados, equipo idóneo según bienestar histórico del equipo, y presupuesto completo en horas de trabajo.</div></div>
       <div class="step-c"><div class="step-n">Paso 03</div><div class="step-t">El equipo valida</div><div class="step-d">Planning Poker con las estimaciones de iUbot como punto de partida. El equipo ajusta, divide o rechaza historias siguiendo metodología PMBOK.</div></div>
-      <div class="step-c"><div class="step-n">Paso 04</div><div class="step-t">El Motor de IA activa</div><div class="step-d">La satisfacción de proceso (SP) y persona (FISP) se calculan en tiempo real desde el primer registro. Los riesgos quedan en monitoreo continuo.</div></div>
+      <div class="step-c"><div class="step-n">Paso 04</div><div class="step-t">El Motor de IA activa</div><div class="step-d">Las métricas de proceso (SP) y persona (FISP) se calculan en tiempo real desde el primer registro. Los riesgos quedan en monitoreo continuo.</div></div>
     </div>
   </div>
 </section>
@@ -447,7 +519,7 @@ nav {
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="14" cy="22" r="4" fill="none" stroke="#88C0D0" stroke-width="1" opacity="0.8"></circle><circle cx="14" cy="22" r="8" fill="none" stroke="#88C0D0" stroke-width="0.7" opacity="0.45"></circle><circle cx="14" cy="22" r="12" fill="none" stroke="#88C0D0" stroke-width="0.5" opacity="0.2"></circle><circle cx="14" cy="22" r="1.5" fill="#00B4D8" opacity="0.9"></circle><line x1="23" y1="8" x2="23" y2="36" stroke="#E0E4EA" stroke-width="0.8" stroke-dasharray="2,2"></line><ellipse cx="33" cy="19" rx="3.5" ry="5.5" fill="none" stroke="#D85A30" stroke-width="1" opacity="0.8"></ellipse><ellipse cx="35" cy="23" rx="6" ry="3.5" fill="none" stroke="#D85A30" stroke-width="0.7" opacity="0.5"></ellipse><ellipse cx="32" cy="22" rx="9" ry="7" fill="none" stroke="#D85A30" stroke-width="0.5" opacity="0.25"></ellipse><circle cx="33" cy="22" r="1.5" fill="#D85A30" opacity="0.9"></circle></svg></div>
-          <div class="mod-info"><div class="mod-name">Volatilidad Psicológica</div><div class="mod-desc">Compara la regularidad del bienestar en el tiempo. Anillos regulares indican estabilidad; anillos irregulares revelan inconsistencia que penaliza el Factor Integral de Satisfacción de la Persona (FISP).</div></div>
+          <div class="mod-info"><div class="mod-name">Volatilidad Psicológica</div><div class="mod-desc">Compara la regularidad del bienestar en el tiempo. Anillos regulares indican estabilidad; anillos irregulares revelan inconsistencia que penaliza el Factor Integral de Salud de la Persona (FISP).</div></div>
           <div class="mod-impact mi-core">Core</div>
         </div>
 
@@ -459,32 +531,32 @@ nav {
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="22" cy="22" r="14" fill="none" stroke="#E0E4EA" stroke-width="3"></circle><circle cx="22" cy="22" r="14" fill="none" stroke="#88C0D0" stroke-width="3" stroke-dasharray="66 22" stroke-linecap="round" transform="rotate(-90 22 22)"></circle><circle cx="22" cy="22" r="8" fill="#fff" stroke="#E0E4EA" stroke-width="0.5"></circle><line x1="22" y1="8" x2="22" y2="16" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="36" y1="22" x2="28" y2="22" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="22" y1="36" x2="22" y2="28" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="8" y1="22" x2="16" y2="22" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><circle cx="22" cy="22" r="2" fill="#00B4D8"></circle></svg></div>
-          <div class="mod-info"><div class="mod-name">FISP Maestro — Factor Integral de Satisfacción de la Persona</div><div class="mod-desc">Sintetiza todas las dimensiones de satisfacción en un único índice entre 0 y 100%. Es el producto central del sistema en la dimensión persona.</div></div>
+          <div class="mod-info"><div class="mod-name">FISP Maestro — Factor Integral de Salud de la Persona</div><div class="mod-desc">Sintetiza todas las dimensiones de bienestar en un único índice entre 0 y 100%. Es el producto central del sistema en la dimensión persona.</div></div>
           <div class="mod-impact mi-core">Core</div>
         </div>
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><line x1="8" y1="34" x2="36" y2="12" stroke="#3B4252" stroke-width="1" opacity="0.2" stroke-dasharray="3,2"></line><path d="M8,34 Q18,32 24,26 Q30,20 36,22" fill="none" stroke="#88C0D0" stroke-width="1.5" opacity="0.9"></path><line x1="28" y1="15" x2="28" y2="22" stroke="#D85A30" stroke-width="1.2" opacity="0.8"></line><line x1="25" y1="15" x2="31" y2="15" stroke="#D85A30" stroke-width="1" opacity="0.8"></line><line x1="25" y1="22" x2="31" y2="22" stroke="#D85A30" stroke-width="1" opacity="0.8"></line><circle cx="8" cy="34" r="2.5" fill="#00B4D8"></circle><circle cx="36" cy="22" r="2.5" fill="#00B4D8"></circle></svg></div>
-          <div class="mod-info"><div class="mod-name">Delta PERT Proceso</div><div class="mod-desc">Calcula la desviación real del proceso respecto a su estimación original de probabilidad. Es la base de la Satisfacción del Proceso (SP).</div></div>
+          <div class="mod-info"><div class="mod-name">Delta PERT Proceso</div><div class="mod-desc">Calcula la desviación real del proceso respecto a su estimación original probabilística. Es la base del Service Performance (SP).</div></div>
           <div class="mod-impact mi-core">Core</div>
         </div>
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><polygon points="22,7 35,14 35,30 22,37 9,30 9,14" fill="none" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></polygon><polygon points="22,11 31,16 31,28 22,33 13,28 13,16" fill="#00B4D8" opacity="0.1"></polygon><polygon points="22,11 31,16 31,28 22,33 13,28 13,16" fill="none" stroke="#88C0D0" stroke-width="1.3" opacity="0.85"></polygon><line x1="22" y1="11" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="31" y1="16" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="31" y1="28" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="22" y1="33" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="13" y1="28" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><line x1="13" y1="16" x2="22" y2="22" stroke="#3B4252" stroke-width="0.5" opacity="0.25"></line><circle cx="22" cy="22" r="3" fill="#00B4D8"></circle></svg></div>
-          <div class="mod-info"><div class="mod-name">SP Maestro — Satisfacción del Proceso</div><div class="mod-desc">Integra el delta, la velocidad de deterioro, la cascada entre procesos y la penalización en un único índice de rendimiento entre 0 y 100%.</div></div>
+          <div class="mod-info"><div class="mod-name">SP Maestro — Service Performance</div><div class="mod-desc">Integra el delta, la velocidad de deterioro, la cascada entre procesos y la penalización en un único índice de rendimiento entre 0 y 100%.</div></div>
           <div class="mod-impact mi-core">Core</div>
         </div>
 
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="10" width="18" height="4" rx="1" fill="#00B4D8" opacity="0.35"></rect><rect x="8" y="17" width="14" height="4" rx="1" fill="#00B4D8" opacity="0.55"></rect><rect x="8" y="24" width="16" height="4" rx="1" fill="#00B4D8" opacity="0.75"></rect><path d="M30,12 Q38,12 38,20 Q38,28 30,28 Q26,28 24,26" fill="none" stroke="#88C0D0" stroke-width="1.2" opacity="0.7"></path><line x1="24" y1="22" x2="24" y2="27" stroke="#88C0D0" stroke-width="1.2" opacity="0.7"></line><line x1="20" y1="27" x2="24" y2="27" stroke="#88C0D0" stroke-width="1.2" opacity="0.7"></line><circle cx="30" cy="12" r="2" fill="#00B4D8" opacity="0.8"></circle><line x1="8" y1="33" x2="26" y2="33" stroke="#88C0D0" stroke-width="0.6" opacity="0.2" stroke-dasharray="2,2"></line></svg></div>
-          <div class="mod-info"><div class="mod-name">Índice de Retrabajo</div><div class="mod-desc">Detecta cuántos intentos necesita una persona para completar una tarea. Es la primera señal de estrés no declarado — llega antes que cualquier caída en SP o FISP. Sin este módulo, el sistema actúa a ciegas.</div></div>
+          <div class="mod-info"><div class="mod-name">Índice de Retrabajo</div><div class="mod-desc">Detecta cuántos intentos necesita una persona para completar una tarea. Es la primera señal de estrés no declarado — llega antes que cualquier caída en SP o FISP. Core porque sin él el sistema actúa a ciegas.</div></div>
           <div class="mod-impact mi-core">Core</div>
         </div>
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="22" cy="20" r="10" fill="none" stroke="#88C0D0" stroke-width="0.8" opacity="0.2"></circle><circle cx="22" cy="20" r="6" fill="none" stroke="#88C0D0" stroke-width="1" opacity="0.45"></circle><circle cx="22" cy="20" r="2.5" fill="#00B4D8" opacity="0.8"></circle><line x1="22" y1="8" x2="22" y2="11" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="22" y1="29" x2="22" y2="32" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="10" y1="20" x2="13" y2="20" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><line x1="31" y1="20" x2="34" y2="20" stroke="#88C0D0" stroke-width="1" opacity="0.5"></line><path d="M14,14 L16.5,16.5" stroke="#88C0D0" stroke-width="1" opacity="0.4"></path><path d="M28,26 L30.5,28.5" stroke="#88C0D0" stroke-width="1" opacity="0.4"></path><path d="M30,14 L27.5,16.5" stroke="#88C0D0" stroke-width="1" opacity="0.4"></path><path d="M14,26 L16.5,23.5" stroke="#88C0D0" stroke-width="1" opacity="0.4"></path><line x1="14" y1="36" x2="30" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2" stroke-dasharray="2,2"></line><line x1="18" y1="33" x2="18" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></line><line x1="22" y1="33" x2="22" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></line><line x1="26" y1="33" x2="26" y2="36" stroke="#3B4252" stroke-width="0.5" opacity="0.2"></line></svg></div>
-          <div class="mod-info"><div class="mod-name">Índice de Inquietud</div><div class="mod-desc">Detecta tensión anticipada, antes de que aparezca en el FISP. La mide desde fuentes objetivas: brecha de skills, historial propio en contextos similares y carga de tareas críticas activas.</div></div>
+          <div class="mod-info"><div class="mod-name">Índice de Inquietud</div><div class="mod-desc">Detecta tensión anticipatoria antes de que aparezca en el retrabajo o el FISP. La mide desde fuentes objetivas: brecha de skills, historial propio en contextos similares y carga de tareas críticas activas.</div></div>
           <div class="mod-impact mi-core">Core</div>
         </div>
 
@@ -502,7 +574,7 @@ nav {
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="10" width="28" height="5" rx="1.5" fill="#00B4D8" opacity="0.25"></rect><rect x="8" y="18" width="28" height="5" rx="1.5" fill="#00B4D8" opacity="0.4"></rect><rect x="8" y="26" width="28" height="5" rx="1.5" fill="#00B4D8" opacity="0.6"></rect><rect x="8" y="34" width="28" height="5" rx="1.5" fill="#00B4D8" opacity="0.85"></rect><line x1="36" y1="38" x2="40" y2="38" stroke="#3B4252" stroke-width="1" opacity="0.4"></line><line x1="38" y1="35" x2="40" y2="38" stroke="#3B4252" stroke-width="1" opacity="0.4"></line><line x1="38" y1="41" x2="40" y2="38" stroke="#3B4252" stroke-width="1" opacity="0.4"></line></svg></div>
-          <div class="mod-info"><div class="mod-name">Factor Psicológico</div><div class="mod-desc">Combina las 4 dimensiones del modelo JD-R+JDCS en un índice único ajustado por volatilidad. Sin él, el FISP pierde su componente más importante.</div></div>
+          <div class="mod-info"><div class="mod-name">Factor Psicológico</div><div class="mod-desc">Combina las 4 dimensiones del modelo JD-R+JDCS en un índice único ajustado por volatilidad. Sin él, el FISP pierde su componente más rica.</div></div>
           <div class="mod-impact mi-warn">Sin él: −15% FISP</div>
         </div>
 
@@ -526,7 +598,7 @@ nav {
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="8" y="28" width="5" height="10" rx="1" fill="#00B4D8" opacity="0.2"></rect><rect x="15" y="24" width="5" height="14" rx="1" fill="#00B4D8" opacity="0.35"></rect><rect x="22" y="19" width="5" height="19" rx="1" fill="#00B4D8" opacity="0.52"></rect><rect x="29" y="15" width="5" height="23" rx="1" fill="#00B4D8" opacity="0.7"></rect><rect x="36" y="11" width="5" height="27" rx="1" fill="#00B4D8" opacity="0.9"></rect><line x1="6" y1="38" x2="42" y2="38" stroke="#3B4252" stroke-width="0.6" opacity="0.25"></line><path d="M10,30 L17,26 L24,21 L31,17 L38,13" fill="none" stroke="#3B4252" stroke-width="0.8" opacity="0.4" stroke-dasharray="2,2"></path></svg></div>
-          <div class="mod-info"><div class="mod-name">Historial Normalizado</div><div class="mod-desc">Ventana de tiempo deslizante de 6 meses con mayor peso en los meses recientes. Evita que un buen mes tape un mal semestre — da contexto temporal al estado actual.</div></div>
+          <div class="mod-info"><div class="mod-name">Historial Normalizado</div><div class="mod-desc">Ventana deslizante de 6 meses con mayor peso en los meses recientes. Evita que un buen mes tape un mal semestre — da contexto temporal al estado actual.</div></div>
           <div class="mod-impact mi-med">Sin él: −5% SP / −5% FISP</div>
         </div>
 
@@ -538,13 +610,13 @@ nav {
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><path d="M8,36 A18,18 0 0,1 36,36" fill="none" stroke="#E0E4EA" stroke-width="2.5"></path><path d="M8,36 A18,18 0 0,1 22,18" fill="none" stroke="#88C0D0" stroke-width="2.5"></path><path d="M22,18 A18,18 0 0,1 36,36" fill="none" stroke="#D85A30" stroke-width="2.5"></path><line x1="22" y1="36" x2="31" y2="22" stroke="#D85A30" stroke-width="1.5" opacity="0.9"></line><circle cx="22" cy="36" r="3" fill="#fff" stroke="#3B4252" stroke-width="1"></circle></svg></div>
-          <div class="mod-info"><div class="mod-name">Velocidad de Deterioro</div><div class="mod-desc">Mide qué tan rápido cae la Satisfacción del Proceso (SP) entre dos mediciones. Un proceso puede estar aún en zona verde pero cayendo a alta velocidad — este módulo lo detecta antes.</div></div>
+          <div class="mod-info"><div class="mod-name">Velocidad de Deterioro</div><div class="mod-desc">Mide qué tan rápido cae el Service Performance (SP) entre dos mediciones. Un proceso puede estar aún en zona verde pero cayendo a alta velocidad — este módulo lo detecta antes.</div></div>
           <div class="mod-impact mi-warn">Sin él: −12% SP</div>
         </div>
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="16" y="6" width="12" height="8" rx="2" fill="#D85A30" opacity="0.3" stroke="#D85A30" stroke-width="0.8"></rect><line x1="22" y1="14" x2="22" y2="19" stroke="#D85A30" stroke-width="0.8" opacity="0.6"></line><rect x="6" y="19" width="11" height="7" rx="1.5" fill="#D85A30" opacity="0.2" stroke="#D85A30" stroke-width="0.7"></rect><rect x="20" y="19" width="11" height="7" rx="1.5" fill="#D85A30" opacity="0.2" stroke="#D85A30" stroke-width="0.7"></rect><line x1="17" y1="19" x2="11" y2="26" stroke="#D85A30" stroke-width="0.7" opacity="0.5"></line><line x1="27" y1="19" x2="31" y2="26" stroke="#D85A30" stroke-width="0.7" opacity="0.5"></line><rect x="2" y="28" width="9" height="6" rx="1.5" fill="#BA7517" opacity="0.2" stroke="#BA7517" stroke-width="0.6"></rect><rect x="17" y="28" width="9" height="6" rx="1.5" fill="#BA7517" opacity="0.2" stroke="#BA7517" stroke-width="0.6"></rect><rect x="32" y="28" width="9" height="6" rx="1.5" fill="#BA7517" opacity="0.2" stroke="#BA7517" stroke-width="0.6"></rect></svg></div>
-          <div class="mod-info"><div class="mod-name">Cascada de Deterioro</div><div class="mod-desc">Propaga el deterioro de un proceso a los procesos que dependen de él. Sin este módulo, un proceso bloqueado puede estar afectando a tres más, sin que el sistema lo vea.</div></div>
+          <div class="mod-info"><div class="mod-name">Cascada de Deterioro</div><div class="mod-desc">Propaga el deterioro de un proceso a los procesos que dependen de él. Sin este módulo, un proceso bloqueado puede estar afectando a tres más sin que el sistema lo vea.</div></div>
           <div class="mod-impact mi-warn">Sin él: −8% SP</div>
         </div>
 
@@ -568,7 +640,7 @@ nav {
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><circle cx="8" cy="34" r="1.8" fill="#3B4252" opacity="0.5"></circle><circle cx="14" cy="28" r="1.8" fill="#3B4252" opacity="0.5"></circle><circle cx="20" cy="30" r="1.8" fill="#3B4252" opacity="0.5"></circle><circle cx="26" cy="22" r="1.8" fill="#3B4252" opacity="0.5"></circle><path d="M8,34 L14,28 L20,30 L26,22" fill="none" stroke="#88C0D0" stroke-width="1.2" opacity="0.7"></path><line x1="26" y1="8" x2="26" y2="36" stroke="#3B4252" stroke-width="0.6" opacity="0.15" stroke-dasharray="2,2"></line><path d="M26,22 Q32,16 38,12" fill="none" stroke="#B48EAD" stroke-width="1.3" opacity="0.8" stroke-dasharray="3,2"></path><circle cx="32" cy="17" r="2" fill="#B48EAD" opacity="0.7"></circle><circle cx="38" cy="12" r="2" fill="#B48EAD" opacity="0.7"></circle><circle cx="26" cy="22" r="3" fill="#fff" stroke="#88C0D0" stroke-width="1"></circle></svg></div>
-          <div class="mod-info"><div class="mod-name">Predicción ML de Estrés</div><div class="mod-desc">Entrena un modelo de Machine Learning, por empresa, que predice el estrés futuro basado en patrones históricos. Sin él, el FISP es descriptivo — mide lo que ya ocurrió, no lo que viene.</div></div>
+          <div class="mod-info"><div class="mod-name">Predicción ML de Estrés</div><div class="mod-desc">Entrena un modelo de Machine Learning por empresa que predice el estrés futuro basado en patrones históricos. Sin él, el FISP es descriptivo — mide lo que ya ocurrió, no lo que viene.</div></div>
           <div class="mod-impact mi-med">Sin él: modo reactivo</div>
         </div>
 
@@ -592,7 +664,7 @@ nav {
 
         <div class="mod-item">
           <div class="mod-icon"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" rx="8" class="icon-bg"></rect><rect x="18" y="8" width="16" height="28" rx="2" fill="#EBCB8B" opacity="0.1"></rect><line x1="18" y1="6" x2="18" y2="38" stroke="#EBCB8B" stroke-width="0.8" opacity="0.5" stroke-dasharray="2,2"></line><line x1="34" y1="6" x2="34" y2="38" stroke="#EBCB8B" stroke-width="0.8" opacity="0.5" stroke-dasharray="2,2"></line><path d="M6,18 L18,18 L34,22" fill="none" stroke="#88C0D0" stroke-width="1.4" opacity="0.9"></path><path d="M6,18 L18,18 L34,34" fill="none" stroke="#D85A30" stroke-width="1" opacity="0.4" stroke-dasharray="3,2"></path><path d="M34,22 L38,24" fill="none" stroke="#88C0D0" stroke-width="1.4" opacity="0.7"></path><circle cx="6" cy="18" r="2" fill="#00B4D8"></circle><circle cx="18" cy="18" r="2" fill="#00B4D8"></circle><circle cx="34" cy="22" r="2" fill="#00B4D8"></circle></svg></div>
-          <div class="mod-info"><div class="mod-name">SP Proporcional — Delta de Gracia</div><div class="mod-desc">Durante el período de gracia de un Factor de Incertidumbre Crítico (FIC) activo, ela Satisfacción del Proceso (SP) se ajusta proporcionalmente. Sin él, el proceso se verá en rojo por una razón protegida.</div></div>
+          <div class="mod-info"><div class="mod-name">SP Proporcional — Delta de Gracia</div><div class="mod-desc">Durante el período de gracia de un Factor de Incertidumbre Crítico (FIC) activo, el Service Performance (SP) se ajusta proporcionalmente. Sin él, el proceso se verá en rojo por una razón protegida.</div></div>
           <div class="mod-impact mi-warn">Sin él: SP injusto en crisis</div>
         </div>
 
@@ -665,7 +737,7 @@ nav {
     <h2 class="h2-dark" style="max-width:520px;margin:0 auto 16px;">¿Tu equipo está <em class="accent">realmente</em> bien?</h2>
     <p class="desc-dark" style="margin:0 auto 36px;text-align:center;">iUbits te lo dice. Con evidencia, en tiempo real, respetando la privacidad de cada persona.</p>
     <div style="display:flex;gap:12px;justify-content:center;">
-      <a class="btn-p" href="#" onclick="openModal();return false;">Solicitar acceso</a>
+      <a class="btn-p" href="#" onclick="openModal();return false;" aria-label="Solicitar acceso a iUbits">Solicitar acceso</a>
       <a class="btn-g-dark" href="#" onclick="openModal();return false;">Solicitar acceso anticipado →</a>
     </div>
   </div>
@@ -701,9 +773,9 @@ nav {
       <div class="modal-title">Sé el primero en <em class="accent">acceder</em></div>
       <p class="modal-desc">iUbits está en desarrollo activo. Déjanos tu email y te avisamos cuando esté listo para tu organización.</p>
       <form class="modal-form" action="https://formspree.io/f/mvzvjqae" method="POST" onsubmit="handleSubmit(event)">
-        <input class="modal-input" type="text" name="nombre" placeholder="Tu nombre" required>
-        <input class="modal-input" type="email" name="email" placeholder="Tu email corporativo" required>
-        <input class="modal-input" type="text" name="empresa" placeholder="Empresa (opcional)">
+        <input class="modal-input" type="text" name="nombre" placeholder="Tu nombre" aria-label="Tu nombre" required>
+        <input class="modal-input" type="email" name="email" placeholder="Tu email corporativo" aria-label="Tu email corporativo" required>
+        <input class="modal-input" type="text" name="empresa" placeholder="Empresa (opcional)" aria-label="Empresa">
         <input type="hidden" name="_subject" value="iUbits — Nueva solicitud de acceso">
         <button class="modal-submit" type="submit">Notifícame cuando esté disponible →</button>
       </form>
